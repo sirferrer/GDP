@@ -77,7 +77,7 @@ class GDPdrone{
             public:
                 double DegToRad(float x){float ans = x/180 * pi; return ans;}
                 double RadToDeg(float x){float ans = x*180 / pi; return ans;}
-                
+
                 // Simplify pose creation
                 geometry_msgs::PoseStamped make_pose(float x, float y, float z)
                 {
@@ -95,7 +95,7 @@ class GDPdrone{
         };
 
         class Commands
-        { 
+        {
             public:
                 void requestLanding(){
                 // Create Twist Command
