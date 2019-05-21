@@ -1,0 +1,8 @@
+mavros/mavros_extras
+/home/pablo/GDP_Git/devel/.private/mavros_extras/cmake.lock /home/pablo/GDP_Git/devel/./cmake.lock
+/home/pablo/GDP_Git/devel/.private/mavros_extras/lib/libmavros_extras.so /home/pablo/GDP_Git/devel/lib/libmavros_extras.so
+/home/pablo/GDP_Git/devel/.private/mavros_extras/lib/pkgconfig/mavros_extras.pc /home/pablo/GDP_Git/devel/lib/pkgconfig/mavros_extras.pc
+/home/pablo/GDP_Git/devel/.private/mavros_extras/lib/mavros_extras/copter_visualization /home/pablo/GDP_Git/devel/lib/mavros_extras/copter_visualization
+/home/pablo/GDP_Git/devel/.private/mavros_extras/lib/mavros_extras/servo_state_publisher /home/pablo/GDP_Git/devel/lib/mavros_extras/servo_state_publisher
+/home/pablo/GDP_Git/devel/.private/mavros_extras/share/mavros_extras/cmake/mavros_extrasConfig-version.cmake /home/pablo/GDP_Git/devel/share/mavros_extras/cmake/mavros_extrasConfig-version.cmake
+/home/pablo/GDP_Git/devel/.private/mavros_extras/share/mavros_extras/cmake/mavros_extrasConfig.cmake /home/pablo/GDP_Git/devel/share/mavros_extras/cmake/mavros_extrasConfig.cmake

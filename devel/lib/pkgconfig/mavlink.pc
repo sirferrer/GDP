@@ -1,0 +1,8 @@
+prefix=/home/pablo/GDP_Git/devel
+exec_prefix=/home/pablo/GDP_Git/devel
+includedir=${prefix}/include
+
+Name: mavlink
+Description: MAVLink micro air vehicle marshalling / communication library
+Version: 2019.4.4
+Cflags: -I${includedir}

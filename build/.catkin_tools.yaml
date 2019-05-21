@@ -1,0 +1,6 @@
+devel_space: /home/pablo/GDP_Git/devel
+install: false
+install_space: /home/pablo/GDP_Git/install
+profile: default
+source_space: /home/pablo/GDP_Git/src
+workspace: /home/pablo/GDP_Git

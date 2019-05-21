@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/pablo/GDP_Git/devel/.private/mavros_msgs/setup.sh
