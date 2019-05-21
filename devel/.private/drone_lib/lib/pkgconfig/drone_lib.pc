@@ -1,0 +1,8 @@
+prefix=/home/pablo/GDP_Git/devel/.private/drone_lib
+
+Name: drone_lib
+Description: Description of drone_lib
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/pablo/GDP_Git/devel/.private/drone_lib/lib 
+Requires: 

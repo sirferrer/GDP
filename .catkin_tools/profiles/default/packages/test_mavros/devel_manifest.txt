@@ -1,0 +1,7 @@
+mavros/test_mavros
+/home/pablo/GDP_Git/devel/.private/test_mavros/cmake.lock /home/pablo/GDP_Git/devel/./cmake.lock
+/home/pablo/GDP_Git/devel/.private/test_mavros/lib/libmavros_sitl_test.so /home/pablo/GDP_Git/devel/lib/libmavros_sitl_test.so
+/home/pablo/GDP_Git/devel/.private/test_mavros/lib/test_mavros/sitl_test_node /home/pablo/GDP_Git/devel/lib/test_mavros/sitl_test_node
+/home/pablo/GDP_Git/devel/.private/test_mavros/lib/pkgconfig/test_mavros.pc /home/pablo/GDP_Git/devel/lib/pkgconfig/test_mavros.pc
+/home/pablo/GDP_Git/devel/.private/test_mavros/share/test_mavros/cmake/test_mavrosConfig-version.cmake /home/pablo/GDP_Git/devel/share/test_mavros/cmake/test_mavrosConfig-version.cmake
+/home/pablo/GDP_Git/devel/.private/test_mavros/share/test_mavros/cmake/test_mavrosConfig.cmake /home/pablo/GDP_Git/devel/share/test_mavros/cmake/test_mavrosConfig.cmake
