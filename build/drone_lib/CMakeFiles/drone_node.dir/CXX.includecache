@@ -11,6 +11,8 @@ headers/commands.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h
 headers/functions.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
+headers/data.h
+/home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
 
 /home/pablo/GDP_Git/src/drone_lib/src/Data.cpp
 headers/data.h
@@ -27,14 +29,6 @@ headers/gdpdrone.h
 /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp
 headers/gdpdrone.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/gdpdrone.h
-headers/test.h
-/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
-
-/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp
-headers/test.h
-/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
-mavros_msgs/State.h
--
 
 /home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h
 ros/ros.h
@@ -53,6 +47,8 @@ geometry_msgs/PoseStamped.h
 -
 geometry_msgs/Twist.h
 -
+geometry_msgs/Vector3Stamped.h
+-
 
 /home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
 ros/ros.h
@@ -69,6 +65,8 @@ geometry_msgs/PoseStamped.h
 -
 geometry_msgs/Twist.h
 -
+geometry_msgs/Vector3Stamped.h
+-
 
 /home/pablo/GDP_Git/src/drone_lib/src/headers/gdpdrone.h
 data.h
@@ -77,10 +75,6 @@ commands.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h
 functions.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
-
-/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
-ros/ros.h
--
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string
@@ -188,6 +182,26 @@ ros/serialization.h
 ros/builtin_message_traits.h
 -
 ros/message_operations.h
+-
+
+/opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
+string
+-
+vector
+-
+map
+-
+ros/types.h
+-
+ros/serialization.h
+-
+ros/builtin_message_traits.h
+-
+ros/message_operations.h
+-
+std_msgs/Header.h
+-
+geometry_msgs/Vector3.h
 -
 
 /opt/ros/melodic/include/mavros_msgs/Altitude.h

@@ -54,4 +54,15 @@ geometry_msgs::Twist functions::make_twist(float _x, float _y, float _z, float _
     velocityObj.angular.x = _ax;
     velocityObj.angular.y = _ay;
     velocityObj.angular.z = _az;
+    return velocityObj;
+}
+
+geometry_msgs::Vector3Stamped functions::make_acceleration(float _x, float _y, float _z)
+{
+    geometry_msgs::Vector3Stamped accelerationObj;
+    accelerationObj.header.stamp = ros::Time::now();
+    accelerationObj.vector.x = _x;
+    accelerationObj.vector.y = _y;
+    accelerationObj.vector.z = _z;
+    return accelerationObj;
 }

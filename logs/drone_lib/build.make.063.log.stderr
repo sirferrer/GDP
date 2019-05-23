@@ -1,0 +1,8 @@
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/GDPdrone.cpp:[m[K In constructor ‘[01m[KGDPdrone::GDPdrone(float, float)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/GDPdrone.cpp:9:39:[m[K [01;31m[Kerror: [m[Kcannot call constructor ‘[01m[Kcommands::commands[m[K’ directly [[01;31m[K-fpermissive[m[K]
+     MyCommands = commands::commands(20[01;31m[K)[m[K;
+                                       [01;31m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/GDPdrone.cpp:9:39:[m[K [01;36m[Knote: [m[Kfor a function-style cast, remove the redundant ‘[01m[K::commands[m[K’
+make[2]: *** [CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

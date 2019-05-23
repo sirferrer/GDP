@@ -8,10 +8,10 @@
 class GDPdrone
 {
 public:
-    commands Commands;
-    data Data;
+    commands Commands = commands(20);
+    data Data = data(20);
     functions Functions;
-    GDPdrone(float _rate);
+    GDPdrone();
 };
 
 #endif /* GDPdrone_H */

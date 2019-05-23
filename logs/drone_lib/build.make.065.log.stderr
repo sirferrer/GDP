@@ -1,0 +1,34 @@
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:19:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.await_Connection();
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:20:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.set_Offboard();
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:21:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.set_Armed();
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:22:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.requestTakeoff(1);
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:23:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.move_Position(0, 0, 1);
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:24:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.move_Position(1, 0, 1);
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:27:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.requestLanding();
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:28:11:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[Kdrone.MyCommands[m[K.set_Disarmed();
+     [01;31m[K~~~~~~^~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/GDPdrone.cpp:[m[K In constructor ‘[01m[KGDPdrone::GDPdrone(float, float)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/GDPdrone.cpp:9:5:[m[K [01;31m[Kerror: [m[Kinvalid use of member function ‘[01m[Kcommands GDPdrone::MyCommands()[m[K’ (did you forget the ‘[01m[K()[m[K’ ?)
+     [01;31m[KMyCommands[m[K = commands(20);
+     [01;31m[K^~~~~~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[2]: *** [CMakeFiles/drone_node.dir/src/LibTest.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

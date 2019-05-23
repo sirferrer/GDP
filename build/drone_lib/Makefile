@@ -627,33 +627,6 @@ src/LibTest.cpp.s:
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.s
 .PHONY : src/LibTest.cpp.s
 
-src/Test.o: src/Test.cpp.o
-
-.PHONY : src/Test.o
-
-# target to build an object file
-src/Test.cpp.o:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Test.cpp.o
-.PHONY : src/Test.cpp.o
-
-src/Test.i: src/Test.cpp.i
-
-.PHONY : src/Test.i
-
-# target to preprocess a source file
-src/Test.cpp.i:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Test.cpp.i
-.PHONY : src/Test.cpp.i
-
-src/Test.s: src/Test.cpp.s
-
-.PHONY : src/Test.s
-
-# target to generate assembly for a file
-src/Test.cpp.s:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Test.cpp.s
-.PHONY : src/Test.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -707,9 +680,6 @@ help:
 	@echo "... src/LibTest.o"
 	@echo "... src/LibTest.i"
 	@echo "... src/LibTest.s"
-	@echo "... src/Test.o"
-	@echo "... src/Test.i"
-	@echo "... src/Test.s"
 .PHONY : help
 
 

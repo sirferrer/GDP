@@ -9,7 +9,7 @@ class data
 {
 public:
     ros::NodeHandle nh;
-    ros::Rate rate = ros::Rate(20.0);
+    ros::Rate rate = ros::Rate(25.0);
     mavros_msgs::Altitude infrared_altitude;
     std_msgs::Float64 compass_heading;
 

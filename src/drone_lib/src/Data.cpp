@@ -3,7 +3,7 @@
 data::data(float _rate)
 {
     rate = ros::Rate(_rate);
-    
+
     // Subscribe to altitude node
     altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, &data::altitude_cb, this);
 
