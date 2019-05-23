@@ -1,10 +1,4 @@
-#include "commands.h"
-#include <ros/ros.h>
-#include <mavros_msgs/State.h>
-#include <mavros_msgs/ExtendedState.h>
-#include <mavros_msgs/State.h>
-#include <mavros_msgs/CommandBool.h>
-#include <mavros_msgs/SetMode.h>
+#include "headers/commands.h"
 
 class commands
 {
@@ -48,6 +42,10 @@ class commands
         // Subscribers
         ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
         ros::Subscriber state_sub_ext = nh.subscribe<mavros_msgs::ExtendedState>("mavros_msgs/extended_state", 10, ext_state_cb);
+
+        // Publishers
+        ros::Publisher pose_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
+        ros::Publisher twist_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
 
         // Service clients
         arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
