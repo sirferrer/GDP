@@ -1,9 +1,0 @@
-CMakeFiles/drone_node.dir/src/Test.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp:4: multiple definition of `current_state'
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:5: first defined here
-CMakeFiles/drone_node.dir/src/Test.cpp.o: In function `state_cb(boost::shared_ptr<mavros_msgs::State_<std::allocator<void> > const> const&)':
-/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp:6: multiple definition of `state_cb(boost::shared_ptr<mavros_msgs::State_<std::allocator<void> > const> const&)'
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:8: first defined here
-collect2: error: ld returned 1 exit status
-make[2]: *** [/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node] Error 1
-make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
-make: *** [all] Error 2

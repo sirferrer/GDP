@@ -8,8 +8,6 @@
 
 # modified environment variables
 export CMAKE_PREFIX_PATH="/home/pablo/GDP_Git/devel/.private/drone_lib:$CMAKE_PREFIX_PATH"
-export LD_LIBRARY_PATH="/home/pablo/GDP_Git/devel/.private/drone_lib/lib:$LD_LIBRARY_PATH"
-export PKG_CONFIG_PATH="/home/pablo/GDP_Git/devel/.private/drone_lib/lib/pkgconfig:$PKG_CONFIG_PATH"
 export PWD="/home/pablo/GDP_Git/build/drone_lib"
 export ROSLISP_PACKAGE_DIRECTORIES="/home/pablo/GDP_Git/devel/.private/drone_lib/share/common-lisp:$ROSLISP_PACKAGE_DIRECTORIES"
 export ROS_PACKAGE_PATH="/home/pablo/GDP_Git/src/drone_lib:$ROS_PACKAGE_PATH"

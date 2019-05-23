@@ -1,0 +1,4 @@
+Symlinking /home/pablo/GDP_Git/devel/lib/pkgconfig/drone_lib.pc
+Symlinking /home/pablo/GDP_Git/devel/lib/drone_lib/drone_node
+Symlinking /home/pablo/GDP_Git/devel/share/drone_lib/cmake/drone_libConfig.cmake
+Symlinking /home/pablo/GDP_Git/devel/share/drone_lib/cmake/drone_libConfig-version.cmake

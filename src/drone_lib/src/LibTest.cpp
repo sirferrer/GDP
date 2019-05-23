@@ -16,8 +16,8 @@ int main(int argc, char **argv)
     //ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
 
     ros::Rate rate(set_rate); // 20 Hz by default
-  
-    test test(int argc, char **argv);
+    test myTest(int argc, char **argv);
+
     GDPdrone drone(nh, rate);
     drone.Commands.await_Connection();
     drone.Commands.set_Offboard();
