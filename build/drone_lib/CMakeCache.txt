@@ -284,9 +284,6 @@ cpp_common_DIR:PATH=/opt/ros/melodic/share/cpp_common/cmake
 //Value Computed by CMake
 drone_lib_BINARY_DIR:STATIC=/home/pablo/GDP_Git/build/drone_lib
 
-//Dependencies for target
-drone_lib_LIB_DEPENDS:STATIC=
-
 //Value Computed by CMake
 drone_lib_SOURCE_DIR:STATIC=/home/pablo/GDP_Git/src/drone_lib
 

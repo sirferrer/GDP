@@ -1,13 +1,23 @@
 #include "headers/gdpdrone.h"
+#include "headers/test.h"
 
 float const set_rate = 25;
+mavros_msgs::State current_state;
+
+void state_cb(const mavros_msgs::State::ConstPtr &msg)
+{
+    current_state = *msg;
+}
 
 int main(int argc, char **argv)
 {
     ros::init(argc, argv, "drone_node");
     ros::NodeHandle nh;
-    ros::Rate rate(set_rate); // 20 Hz by default
+    //ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, state_cb);
 
+    ros::Rate rate(set_rate); // 20 Hz by default
+  
+    test test(int argc, char **argv);
     GDPdrone drone(nh, rate);
     drone.Commands.await_Connection();
     drone.Commands.set_Offboard();

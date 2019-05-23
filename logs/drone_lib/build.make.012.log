@@ -1,0 +1,15 @@
+[35m[1mScanning dependencies of target drone_node[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/Test.cpp.o[0m
+[ 28%] [32m[1mLinking CXX executable /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node[0m
+CMakeFiles/drone_node.dir/src/Test.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp:4: multiple definition of `current_state'
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:5: first defined here
+CMakeFiles/drone_node.dir/src/Test.cpp.o: In function `state_cb(boost::shared_ptr<mavros_msgs::State_<std::allocator<void> > const> const&)':
+/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp:6: multiple definition of `state_cb(boost::shared_ptr<mavros_msgs::State_<std::allocator<void> > const> const&)'
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:8: first defined here
+collect2: error: ld returned 1 exit status
+CMakeFiles/drone_node.dir/build.make:243: recipe for target '/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node' failed
+make[2]: *** [/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/drone_node.dir/all' failed
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

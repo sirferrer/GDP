@@ -60,7 +60,7 @@ include/v1.0/autoquad/autoquad.h: /home/pablo/GDP_Git/src/mavlink/message_defini
 include/v1.0/autoquad/autoquad.h: /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/common.xml
 include/v1.0/autoquad/autoquad.h: /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/GDP_Git/build/mavlink/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating include/v1.0/autoquad/autoquad.h"
-	/usr/bin/env PYTHONPATH="/home/pablo/GDP_Git/src/mavlink:/home/pablo/GDP_Git/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages" /usr/bin/python /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py --lang=C --wire-protocol=1.0 --output=include/v1.0 /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/autoquad.xml
+	/usr/bin/env PYTHONPATH="/home/pablo/GDP_Git/src/mavlink:/opt/ros/melodic/lib/python2.7/dist-packages" /usr/bin/python /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py --lang=C --wire-protocol=1.0 --output=include/v1.0 /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/autoquad.xml
 
 autoquad.xml-v1.0: CMakeFiles/autoquad.xml-v1.0
 autoquad.xml-v1.0: include/v1.0/autoquad/autoquad.h

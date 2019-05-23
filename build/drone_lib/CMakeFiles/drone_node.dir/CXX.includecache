@@ -27,6 +27,14 @@ headers/gdpdrone.h
 /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp
 headers/gdpdrone.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/gdpdrone.h
+headers/test.h
+/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
+
+/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp
+headers/test.h
+/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
+mavros_msgs/State.h
+-
 
 /home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h
 ros/ros.h
@@ -69,6 +77,10 @@ commands.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h
 functions.h
 /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
+
+/home/pablo/GDP_Git/src/drone_lib/src/headers/test.h
+ros/ros.h
+-
 
 /opt/ros/melodic/include/geometry_msgs/Point.h
 string

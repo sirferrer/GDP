@@ -3,13 +3,13 @@
 
 //-----   CALLBACKS -----//
 // State subscriber callback function
-void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg)
+void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg)
 {
     extended_state = *msg;
 }
 
 // State subscriber callback function
-void commands::state_cb(const mavros_msgs::State::ConstPtr &msg)
+void commands::state_cb(const mavros_msgs::State::ConstPtr& msg)
 {
     current_state = *msg;
 }
@@ -43,6 +43,8 @@ void commands::await_Connection()
         ros::spinOnce();
         rate.sleep();
     }
+
+    ROS_INFO("Connected");
 }
 
 void commands::set_Offboard()
@@ -100,19 +102,19 @@ void commands::set_Mode(std::string _mode)
     mode.request.custom_mode = _mode;
 
     ros::Time last_request = ros::Time::now();
-    while (ros::ok())
+    while (ros::ok() && current_state.mode != _mode)
     {
-        if (current_state.mode != _mode &&
-            (ros::Time::now() - last_request > ros::Duration(0.25)))
+        if (ros::Time::now() - last_request > ros::Duration(0.25))
         {
-            if (set_mode_client.call(mode) && mode.response.mode_sent)
-            {
-                ROS_INFO("%s enabled", _mode);
-            }
+            set_mode_client.call(mode);
             last_request = ros::Time::now();
             ros::spinOnce();
             rate.sleep();
         }
+    }
+    if (current_state.mode == _mode)
+    {
+        ROS_INFO("%s enabled", _mode);
     }
 }
 

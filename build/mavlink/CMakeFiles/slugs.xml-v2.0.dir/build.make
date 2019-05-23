@@ -60,7 +60,7 @@ slugs-v2.0-cxx-stamp: /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/s
 slugs-v2.0-cxx-stamp: /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/common.xml
 slugs-v2.0-cxx-stamp: /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/GDP_Git/build/mavlink/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating slugs-v2.0-cxx-stamp"
-	/usr/bin/env PYTHONPATH="/home/pablo/GDP_Git/src/mavlink:/home/pablo/GDP_Git/devel/lib/python2.7/dist-packages:/opt/ros/melodic/lib/python2.7/dist-packages" /usr/bin/python /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py --lang=C++11 --wire-protocol=2.0 --output=include/v2.0 /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/slugs.xml
+	/usr/bin/env PYTHONPATH="/home/pablo/GDP_Git/src/mavlink:/opt/ros/melodic/lib/python2.7/dist-packages" /usr/bin/python /home/pablo/GDP_Git/src/mavlink/pymavlink/tools/mavgen.py --lang=C++11 --wire-protocol=2.0 --output=include/v2.0 /home/pablo/GDP_Git/src/mavlink/message_definitions/v1.0/slugs.xml
 	touch slugs-v2.0-cxx-stamp
 
 slugs.xml-v2.0: CMakeFiles/slugs.xml-v2.0
