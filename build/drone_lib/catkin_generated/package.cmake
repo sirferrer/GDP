@@ -1,6 +1,6 @@
 set(_CATKIN_CURRENT_PACKAGE "drone_lib")
 set(drone_lib_VERSION "0.0.0")
-set(drone_lib_MAINTAINER "pablo <pablo@todo.todo>")
+set(drone_lib_MAINTAINER "pablo <pf215@ic.ac.uk>")
 set(drone_lib_PACKAGE_FORMAT "2")
 set(drone_lib_BUILD_DEPENDS "roscpp" "rospy" "std_msgs")
 set(drone_lib_BUILD_EXPORT_DEPENDS "roscpp" "rospy" "std_msgs")

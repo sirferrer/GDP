@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC   -shared -Wl,-soname,libdrone_lib.so -o /home/pablo/GDP_Git/devel/.private/drone_lib/lib/libdrone_lib.so CMakeFiles/drone_lib.dir/src/GDPdrone.cpp.o CMakeFiles/drone_lib.dir/src/Commands.cpp.o CMakeFiles/drone_lib.dir/src/Functions.cpp.o CMakeFiles/drone_lib.dir/src/Data.cpp.o 

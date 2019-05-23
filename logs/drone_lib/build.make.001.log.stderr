@@ -1,0 +1,20 @@
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:6:5:[m[K [01;31m[Kerror: [m[K‘[01m[KGDPdrone::GDPdrone[m[K’ names the constructor, not the type
+     [01;31m[KGDPdrone[m[K::GDPdrone drone = GDPdrone(argc, argv, rate);
+     [01;31m[K^~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:6:24:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kdrone[m[K’
+     GDPdrone::GDPdrone [01;31m[Kdrone[m[K = GDPdrone(argc, argv, rate);
+                        [01;31m[K^~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:6:58:[m[K [01;31m[Kerror: [m[Kstatement cannot resolve address of overloaded function
+     GDPdrone::GDPdrone drone = GDPdrone(argc, argv, rate)[01;31m[K;[m[K
+                                                          [01;31m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:7:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kdrone[m[K’ was not declared in this scope
+     [01;31m[Kdrone[m[K.Commands.await_Connection();
+     [01;31m[K^~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:7:5:[m[K [01;36m[Knote: [m[Ksuggested alternative: ‘[01m[Kclone[m[K’
+     [01;36m[Kdrone[m[K.Commands.await_Connection();
+     [01;36m[K^~~~~[m[K
+     [32m[Kclone[m[K
+make[2]: *** [CMakeFiles/drone_node.dir/src/LibTest.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

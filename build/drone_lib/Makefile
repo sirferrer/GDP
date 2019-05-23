@@ -168,6 +168,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named drone_node
+
+# Build rule for target.
+drone_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 drone_node
+.PHONY : drone_node
+
+# fast build rule for target.
+drone_node/fast:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/build
+.PHONY : drone_node/fast
+
+#=============================================================================
 # Target rules for targets named std_msgs_generate_messages_nodejs
 
 # Build rule for target.
@@ -479,6 +492,141 @@ gtest/fast:
 	$(MAKE) -f gtest/googlemock/gtest/CMakeFiles/gtest.dir/build.make gtest/googlemock/gtest/CMakeFiles/gtest.dir/build
 .PHONY : gtest/fast
 
+src/Commands.o: src/Commands.cpp.o
+
+.PHONY : src/Commands.o
+
+# target to build an object file
+src/Commands.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.o
+.PHONY : src/Commands.cpp.o
+
+src/Commands.i: src/Commands.cpp.i
+
+.PHONY : src/Commands.i
+
+# target to preprocess a source file
+src/Commands.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.i
+.PHONY : src/Commands.cpp.i
+
+src/Commands.s: src/Commands.cpp.s
+
+.PHONY : src/Commands.s
+
+# target to generate assembly for a file
+src/Commands.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.s
+.PHONY : src/Commands.cpp.s
+
+src/Data.o: src/Data.cpp.o
+
+.PHONY : src/Data.o
+
+# target to build an object file
+src/Data.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.o
+.PHONY : src/Data.cpp.o
+
+src/Data.i: src/Data.cpp.i
+
+.PHONY : src/Data.i
+
+# target to preprocess a source file
+src/Data.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.i
+.PHONY : src/Data.cpp.i
+
+src/Data.s: src/Data.cpp.s
+
+.PHONY : src/Data.s
+
+# target to generate assembly for a file
+src/Data.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.s
+.PHONY : src/Data.cpp.s
+
+src/Functions.o: src/Functions.cpp.o
+
+.PHONY : src/Functions.o
+
+# target to build an object file
+src/Functions.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.o
+.PHONY : src/Functions.cpp.o
+
+src/Functions.i: src/Functions.cpp.i
+
+.PHONY : src/Functions.i
+
+# target to preprocess a source file
+src/Functions.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.i
+.PHONY : src/Functions.cpp.i
+
+src/Functions.s: src/Functions.cpp.s
+
+.PHONY : src/Functions.s
+
+# target to generate assembly for a file
+src/Functions.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.s
+.PHONY : src/Functions.cpp.s
+
+src/GDPdrone.o: src/GDPdrone.cpp.o
+
+.PHONY : src/GDPdrone.o
+
+# target to build an object file
+src/GDPdrone.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o
+.PHONY : src/GDPdrone.cpp.o
+
+src/GDPdrone.i: src/GDPdrone.cpp.i
+
+.PHONY : src/GDPdrone.i
+
+# target to preprocess a source file
+src/GDPdrone.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.i
+.PHONY : src/GDPdrone.cpp.i
+
+src/GDPdrone.s: src/GDPdrone.cpp.s
+
+.PHONY : src/GDPdrone.s
+
+# target to generate assembly for a file
+src/GDPdrone.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.s
+.PHONY : src/GDPdrone.cpp.s
+
+src/LibTest.o: src/LibTest.cpp.o
+
+.PHONY : src/LibTest.o
+
+# target to build an object file
+src/LibTest.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.o
+.PHONY : src/LibTest.cpp.o
+
+src/LibTest.i: src/LibTest.cpp.i
+
+.PHONY : src/LibTest.i
+
+# target to preprocess a source file
+src/LibTest.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.i
+.PHONY : src/LibTest.cpp.i
+
+src/LibTest.s: src/LibTest.cpp.s
+
+.PHONY : src/LibTest.s
+
+# target to generate assembly for a file
+src/LibTest.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.s
+.PHONY : src/LibTest.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -488,6 +636,7 @@ help:
 	@echo "... install/strip"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... drone_node"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_lisp"
 	@echo "... install/local"
@@ -516,6 +665,21 @@ help:
 	@echo "... gmock"
 	@echo "... gtest_main"
 	@echo "... gtest"
+	@echo "... src/Commands.o"
+	@echo "... src/Commands.i"
+	@echo "... src/Commands.s"
+	@echo "... src/Data.o"
+	@echo "... src/Data.i"
+	@echo "... src/Data.s"
+	@echo "... src/Functions.o"
+	@echo "... src/Functions.i"
+	@echo "... src/Functions.s"
+	@echo "... src/GDPdrone.o"
+	@echo "... src/GDPdrone.i"
+	@echo "... src/GDPdrone.s"
+	@echo "... src/LibTest.o"
+	@echo "... src/LibTest.i"
+	@echo "... src/LibTest.s"
 .PHONY : help
 
 

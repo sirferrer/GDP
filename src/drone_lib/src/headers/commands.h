@@ -12,6 +12,27 @@
 
 class commands
 {
+// VARIABLES
+private:
+    // Refresh rate in Hz, 20 by default
+    ros::Rate rate = ros::Rate(20);
+
+    //-----   DATA STORES -----//
+    // Store controller extended state
+    mavros_msgs::ExtendedState extended_state;
+
+    // Store controller state
+    mavros_msgs::State current_state;
+
+    //-----   CLIENTS -----//
+    ros::ServiceClient set_mode_client;
+    ros::ServiceClient arming_client;
+
+    //-----   PUBLISHERS -----//
+    ros::Publisher position_pub;
+    ros::Publisher twist_pub;
+
+// METHODS
 public:
     commands();
     commands(int argc, char **argv, float rate);
@@ -25,6 +46,14 @@ public:
     void requestHover(float time);
     void move_Position(float _x, float _y, float _z);
     void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
+    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg);
+    void state_cb(const mavros_msgs::State::ConstPtr &msg);
+
+private:
+    void set_Mode(std::string _mode);
+    void set_Arm_Disarm(bool _arm);
+    void set_Pose(geometry_msgs::PoseStamped _pose);
+    void set_Velocity(geometry_msgs::Twist _twist);
 };
 
 #endif

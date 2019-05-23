@@ -1,0 +1,8 @@
+[31m[1mCMake Error[0m at /home/pablo/GDP_Git/src/drone_lib/CMakeLists.txt:137 (add_library):
+  add_library cannot create target "drone_node" because another target with
+  the same name already exists.  The existing target is an executable created
+  in source directory "/home/pablo/GDP_Git/src/drone_lib".  See documentation
+  for policy CMP0002 for more details.
+
+
+make: *** [cmake_check_build_system] Error 1

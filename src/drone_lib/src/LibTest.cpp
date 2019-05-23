@@ -3,7 +3,7 @@
 int main(int argc, char **argv)
 {
     float rate = 25;
-    GDPdrone::GDPdrone drone = GDPdrone(argc, argv, rate);
+    GDPdrone drone(argc, argv, rate);
     drone.Commands.await_Connection();
     drone.Commands.set_Offboard();
     drone.Commands.set_Armed();
@@ -14,4 +14,6 @@ int main(int argc, char **argv)
     // drone.Commands.move_Acceleration();
     drone.Commands.requestLanding();
     drone.Commands.set_Disarmed();
+
+    return 0;
 }

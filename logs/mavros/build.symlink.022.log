@@ -1,0 +1,8 @@
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/libmavros.so, /home/pablo/GDP_Git/devel/lib/libmavros.so)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/libmavros_plugins.so, /home/pablo/GDP_Git/devel/lib/libmavros_plugins.so)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/python2.7/dist-packages/mavros/__init__.py, /home/pablo/GDP_Git/devel/lib/python2.7/dist-packages/mavros/__init__.py)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/pkgconfig/mavros.pc, /home/pablo/GDP_Git/devel/lib/pkgconfig/mavros.pc)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/mavros/mavros_node, /home/pablo/GDP_Git/devel/lib/mavros/mavros_node)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/lib/mavros/gcs_bridge, /home/pablo/GDP_Git/devel/lib/mavros/gcs_bridge)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/share/mavros/cmake/mavrosConfig.cmake, /home/pablo/GDP_Git/devel/share/mavros/cmake/mavrosConfig.cmake)
+Linked: (/home/pablo/GDP_Git/devel/.private/mavros/share/mavros/cmake/mavrosConfig-version.cmake, /home/pablo/GDP_Git/devel/share/mavros/cmake/mavrosConfig-version.cmake)

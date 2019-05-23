@@ -1,37 +1,26 @@
 #include "headers/data.h"
 
-class data
+data::data(){};
+data::data(int argc, char **argv, float _rate)
 {
-public:
-    // Store altitude
-    mavros_msgs::Altitude infrared_altitude;
+    ros::init(argc, argv, "data_node");
+    ros::NodeHandle nh;
 
-    // Store Heading Angle
-    std_msgs::Float64 compass_heading;
+    // Subscribe to altitude node
+    ros::Subscriber altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, &data::altitude_cb, this);
 
-    data();
-    data(int argc, char **argv, float _rate)
-    {
-        ros::init(argc, argv, "drone_node");
-        ros::NodeHandle nh;
+    // Compass Data
+    ros::Subscriber compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &data::heading_cb, this);
+}
 
-        // Subscribe to altitude node
-        ros::Subscriber altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, altitude_cb);
+// Altitude subscriber callback function
+void data::altitude_cb(const mavros_msgs::Altitude::ConstPtr &msg)
+{
+    infrared_altitude = *msg;
+}
 
-        // Compass Data
-        ros::Subscriber compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, heading_cb);
-    }
-
-private:
-    // Altitude subscriber callback function
-    void altitude_cb(const mavros_msgs::Altitude::ConstPtr &msg)
-    {
-        infrared_altitude = *msg;
-    }
-
-    // Heading subscriber callback function
-    void heading_cb(const std_msgs::Float64::ConstPtr &msg)
-    {
-        compass_heading = *msg;
-    }
-};
+// Heading subscriber callback function
+void data::heading_cb(const std_msgs::Float64::ConstPtr &msg)
+{
+    compass_heading = *msg;
+}
