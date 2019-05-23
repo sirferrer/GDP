@@ -11,7 +11,7 @@ public:
     mavros_msgs::Altitude infrared_altitude;
     std_msgs::Float64 compass_heading;
     data();
-    data(int argc, char **argv, float _rate);
+    data(ros::NodeHandle nh, ros::Rate rate);
     void altitude_cb(const mavros_msgs::Altitude::ConstPtr &msg);
     void heading_cb(const std_msgs::Float64::ConstPtr &msg);
 };

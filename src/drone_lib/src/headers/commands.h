@@ -14,7 +14,6 @@ class commands
 {
 // VARIABLES
 private:
-    // Refresh rate in Hz, 20 by default
     ros::Rate rate = ros::Rate(20);
 
     //-----   DATA STORES -----//
@@ -35,7 +34,7 @@ private:
 // METHODS
 public:
     commands();
-    commands(int argc, char **argv, float rate);
+    commands(ros::NodeHandle nh, ros::Rate rate);
 
     void await_Connection();
     void set_Offboard();

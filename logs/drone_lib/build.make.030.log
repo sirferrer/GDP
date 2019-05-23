@@ -1,0 +1,74 @@
+[35m[1mScanning dependencies of target drone_node[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/LibTest.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/Commands.cpp.o[0m
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In constructor ‘[01m[Kcommands::commands()[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:19:20:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::Rate::Rate()[m[K’
+ commands::commands([01;31m[K)[m[K {}
+                    [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:39:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/rate.h:59:12:[m[K [01;36m[Knote: [m[Kcandidate: ros::Rate::Rate(const ros::Duration&)
+   explicit [01;36m[KRate[m[K(const Duration&);
+            [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:59:12:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:58:3:[m[K [01;36m[Knote: [m[Kcandidate: ros::Rate::Rate(double)
+   [01;36m[KRate[m[K(double frequency);
+   [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:58:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[Kcandidate: constexpr ros::Rate::Rate(const ros::Rate&)
+ class ROSTIME_DECL [01;36m[KRate[m[K
+                    [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[Kcandidate: constexpr ros::Rate::Rate(ros::Rate&&)
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In constructor ‘[01m[Kcommands::commands(int, char**, float)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:22:54:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::Rate::Rate()[m[K’
+ commands::commands(int argc, char **argv, float _rate[01;31m[K)[m[K
+                                                      [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:39:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/rate.h:59:12:[m[K [01;36m[Knote: [m[Kcandidate: ros::Rate::Rate(const ros::Duration&)
+   explicit [01;36m[KRate[m[K(const Duration&);
+            [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:59:12:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:58:3:[m[K [01;36m[Knote: [m[Kcandidate: ros::Rate::Rate(double)
+   [01;36m[KRate[m[K(double frequency);
+   [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:58:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[Kcandidate: constexpr ros::Rate::Rate(const ros::Rate&)
+ class ROSTIME_DECL [01;36m[KRate[m[K
+                    [01;36m[K^~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[Kcandidate: constexpr ros::Rate::Rate(ros::Rate&&)
+[01m[K/opt/ros/melodic/include/ros/rate.h:51:20:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:40:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kvoid commands::set_Mode(std::__cxx11::string)[m[K’:
+[01m[K/opt/ros/melodic/include/ros/console.h:348:176:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%s[m[K’ expects argument of type ‘[01m[Kchar*[m[K’, but argument 8 has type ‘[01m[Kstd::__cxx11::string {aka std::__cxx11::basic_string<char>}[m[K’ [[01;35m[K-Wformat=[m[K]
+     ::ros::console::print(filter, __rosconsole_define_location__loc.logger_, __rosconsole_define_location__loc.level_, __FILE__, __LINE__, __ROSCONSOLE_FUNCTION__, __VA_ARGS__[01;35m[K)[m[K
+                                                                                                                                                                                [01;35m[K^[m[K
+[01m[K/opt/ros/melodic/include/ros/console.h:351:5:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KROSCONSOLE_PRINT_AT_LOCATION_WITH_FILTER[m[K’
+     [01;36m[KROSCONSOLE_PRINT_AT_LOCATION_WITH_FILTER[m[K(NULL, __VA_ARGS__)
+     [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/console.h:387:7:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KROSCONSOLE_PRINT_AT_LOCATION[m[K’
+       [01;36m[KROSCONSOLE_PRINT_AT_LOCATION[m[K(__VA_ARGS__); \
+       [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/console.h:572:35:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KROS_LOG_COND[m[K’
+ #define ROS_LOG(level, name, ...) [01;36m[KROS_LOG_COND[m[K(true, level, name, __VA_ARGS__)
+                                   [01;36m[K^~~~~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/rosconsole/macros_generated.h:110:23:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KROS_LOG[m[K’
+ #define ROS_INFO(...) [01;36m[KROS_LOG[m[K(::ros::console::levels::Info, ROSCONSOLE_DEFAULT_NAME, __VA_ARGS__)
+                       [01;36m[K^~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:112:17:[m[K [01;36m[Knote: [m[Kin expansion of macro ‘[01m[KROS_INFO[m[K’
+                 [01;36m[KR[m[KOS_INFO("%s enabled", _mode);
+                 [01;36m[K^[m[K
+CMakeFiles/drone_node.dir/build.make:110: recipe for target 'CMakeFiles/drone_node.dir/src/Commands.cpp.o' failed
+make[2]: *** [CMakeFiles/drone_node.dir/src/Commands.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/drone_node.dir/all' failed
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

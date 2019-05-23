@@ -19,10 +19,9 @@ void commands::state_cb(const mavros_msgs::State::ConstPtr &msg)
 commands::commands() {}
 
 // Overloaded constructor
-commands::commands(int argc, char **argv, float _rate)
+commands::commands(ros::NodeHandle nh, ros::Rate _rate)
 {
-    ros::init(argc, argv, "commands_node");
-    ros::NodeHandle nh;
+    rate = ros::Rate(_rate);
 
     // Subscribers
     ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, &commands::state_cb, this);
@@ -35,7 +34,6 @@ commands::commands(int argc, char **argv, float _rate)
     // Service clients
     arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
     set_mode_client = nh.serviceClient<mavros_msgs::SetMode>("mavros/set_mode");
-    rate = ros::Rate(_rate);
 }
 
 void commands::await_Connection()

@@ -1,9 +1,14 @@
 #include "headers/gdpdrone.h"
 
+float const set_rate = 25;
+
 int main(int argc, char **argv)
 {
-    float rate = 25;
-    GDPdrone drone(argc, argv, rate);
+    ros::init(argc, argv, "drone_node");
+    ros::NodeHandle nh;
+    ros::Rate rate(set_rate); // 20 Hz by default
+
+    GDPdrone drone(nh, rate);
     drone.Commands.await_Connection();
     drone.Commands.set_Offboard();
     drone.Commands.set_Armed();

@@ -12,7 +12,7 @@ public:
     data Data;
     functions Functions;
     GDPdrone();
-    GDPdrone(int argc, char **argv, float rate);
+    GDPdrone(ros::NodeHandle, ros::Rate _rate);
 };
 
 #endif /* GDPdrone_H */

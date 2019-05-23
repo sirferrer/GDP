@@ -1,9 +1,8 @@
 #include "headers/gdpdrone.h"
 
-GDPdrone::GDPdrone(){};
-GDPdrone::GDPdrone(int argc, char **argv, float rate)
+GDPdrone::GDPdrone(ros::NodeHandle nh, ros::Rate _rate)
 {
-    Commands = commands(argc, argv, rate);
-    Data = data(argc, argv, rate);
+    Commands = commands(nh, _rate);
+    Data = data(nh, _rate);
     Functions = functions();
 }

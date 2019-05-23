@@ -1,11 +1,8 @@
 #include "headers/data.h"
 
 data::data(){};
-data::data(int argc, char **argv, float _rate)
+data::data(ros::NodeHandle nh, ros::Rate _rate)
 {
-    ros::init(argc, argv, "data_node");
-    ros::NodeHandle nh;
-
     // Subscribe to altitude node
     ros::Subscriber altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, &data::altitude_cb, this);
 
