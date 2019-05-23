@@ -1,31 +1,15 @@
 #include "headers/commands.h"
 #include "headers/functions.h"
 
-//-----   CALLBACKS -----//
-// State subscriber callback function
-void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg)
-{
-    extended_state = *msg;
-}
-
-// State subscriber callback function
-void commands::state_cb(const mavros_msgs::State::ConstPtr& msg)
-{
-    current_state = *msg;
-}
-
 //-----   METHODS -----//
 // Default constructor
-commands::commands() {}
-
-// Overloaded constructor
-commands::commands(ros::NodeHandle nh, ros::Rate _rate)
+commands::commands(float _rate)
 {
     rate = ros::Rate(_rate);
 
     // Subscribers
-    ros::Subscriber state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, &commands::state_cb, this);
-    ros::Subscriber state_sub_ext = nh.subscribe<mavros_msgs::ExtendedState>("mavros_msgs/extended_state", 10, &commands::ext_state_cb, this);
+    state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, &commands::state_cb, this);
+    state_sub_ext = nh.subscribe<mavros_msgs::ExtendedState>("mavros/extended_state", 10, &commands::ext_state_cb, this);
 
     // Publishers
     position_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
@@ -152,4 +136,17 @@ void commands::set_Velocity(geometry_msgs::Twist _twist)
     twist_pub.publish(_twist);
     ros::spinOnce();
     rate.sleep();
+}
+
+//-----   CALLBACKS -----//
+// State subscriber callback function
+void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg)
+{
+    extended_state = *msg;
+}
+
+// State subscriber callback function
+void commands::state_cb(const mavros_msgs::State::ConstPtr& msg)
+{
+    current_state = *msg;
 }

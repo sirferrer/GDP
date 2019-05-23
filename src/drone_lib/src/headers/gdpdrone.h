@@ -11,8 +11,7 @@ public:
     commands Commands;
     data Data;
     functions Functions;
-    GDPdrone();
-    GDPdrone(ros::NodeHandle, ros::Rate _rate);
+    GDPdrone(float _rate);
 };
 
 #endif /* GDPdrone_H */

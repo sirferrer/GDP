@@ -1,13 +1,14 @@
 #include "headers/data.h"
 
-data::data(){};
-data::data(ros::NodeHandle nh, ros::Rate _rate)
+data::data(float _rate)
 {
+    rate = ros::Rate(_rate);
+    
     // Subscribe to altitude node
-    ros::Subscriber altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, &data::altitude_cb, this);
+    altitude_sub = nh.subscribe<mavros_msgs::Altitude>("/mavros/altitude", 10, &data::altitude_cb, this);
 
     // Compass Data
-    ros::Subscriber compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &data::heading_cb, this);
+    compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &data::heading_cb, this);
 }
 
 // Altitude subscriber callback function

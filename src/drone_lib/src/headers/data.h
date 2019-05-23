@@ -8,10 +8,17 @@
 class data
 {
 public:
+    ros::NodeHandle nh;
+    ros::Rate rate = ros::Rate(20.0);
     mavros_msgs::Altitude infrared_altitude;
     std_msgs::Float64 compass_heading;
-    data();
-    data(ros::NodeHandle nh, ros::Rate rate);
+
+    ros::Subscriber compass_sub;
+    ros::Subscriber altitude_sub;
+
+    data(){};
+    data(float _rate);
+
     void altitude_cb(const mavros_msgs::Altitude::ConstPtr &msg);
     void heading_cb(const std_msgs::Float64::ConstPtr &msg);
 };

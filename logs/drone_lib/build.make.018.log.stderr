@@ -1,0 +1,7 @@
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp:20:20:[m[K [01;31m[Kerror: [m[K‘[01m[Knh[m[K’ was not declared in this scope
+     GDPdrone drone([01;31m[Knh[m[K, rate);
+                    [01;31m[K^~[m[K
+make[2]: *** [CMakeFiles/drone_node.dir/src/LibTest.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

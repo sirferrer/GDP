@@ -1,8 +1,11 @@
 #include "headers/gdpdrone.h"
 
-GDPdrone::GDPdrone(ros::NodeHandle nh, ros::Rate _rate)
+GDPdrone::GDPdrone(float _rate)
 {
-    Commands = commands(nh, _rate);
-    Data = data(nh, _rate);
-    Functions = functions();
+    // This class is empty, it is just a container for:
+    // - Commands
+    // - Functions
+    // - Data
+    Data = data(_rate);
+    Commands = commands(_rate);
 }

@@ -13,15 +13,14 @@
 class commands
 {
 // VARIABLES
-private:
-    ros::Rate rate = ros::Rate(20);
+public:
 
     //-----   DATA STORES -----//
     // Store controller extended state
     mavros_msgs::ExtendedState extended_state;
 
     // Store controller state
-    mavros_msgs::State current_state;
+    mavros_msgs::State current_state{};
 
     //-----   CLIENTS -----//
     ros::ServiceClient set_mode_client;
@@ -31,10 +30,14 @@ private:
     ros::Publisher position_pub;
     ros::Publisher twist_pub;
 
-// METHODS
-public:
-    commands();
-    commands(ros::NodeHandle nh, ros::Rate rate);
+    // METHODS
+    ros::NodeHandle nh;
+    ros::Rate rate = ros::Rate(20.0);
+    ros::Subscriber state_sub;
+    ros::Subscriber state_sub_ext;
+
+    commands(){};
+    commands(float _rate);
 
     void await_Connection();
     void set_Offboard();
@@ -45,8 +48,8 @@ public:
     void requestHover(float time);
     void move_Position(float _x, float _y, float _z);
     void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
-    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg);
-    void state_cb(const mavros_msgs::State::ConstPtr &msg);
+    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg);
+    void state_cb(const mavros_msgs::State::ConstPtr& msg);
 
 private:
     void set_Mode(std::string _mode);
