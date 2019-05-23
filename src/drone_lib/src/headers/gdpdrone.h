@@ -12,6 +12,7 @@ public:
     data Data;
     functions Functions;
     GDPdrone();
-    GDPdrone(int argc, char **argv);
+    GDPdrone(int argc, char **argv, float rate);
 };
+
 #endif /* GDPdrone_H */

@@ -20,8 +20,11 @@ public:
     void set_Offboard();
     void set_Armed();
     void set_Disarmed();
-    void requestLanding(float velocity);
+    void requestLanding();
     void requestTakeoff(float altitude);
     void requestHover(float time);
+    void move_Position(float _x, float _y, float _z);
+    void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
 };
+
 #endif

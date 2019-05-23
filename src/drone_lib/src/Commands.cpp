@@ -1,4 +1,5 @@
 #include "headers/commands.h"
+#include "headers/functions.h"
 
 class commands
 {
@@ -15,6 +16,10 @@ class commands
     //-----   CLIENTS -----//
     ros::ServiceClient set_mode_client;
     ros::ServiceClient arming_client;
+
+    //-----   PUBLISHERS -----//
+    ros::Publisher position_pub;
+    ros::Publisher twist_pub;
 
     //-----   CALLBACKS -----//
     // State subscriber callback function
@@ -44,8 +49,8 @@ class commands
         ros::Subscriber state_sub_ext = nh.subscribe<mavros_msgs::ExtendedState>("mavros_msgs/extended_state", 10, ext_state_cb);
 
         // Publishers
-        ros::Publisher pose_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
-        ros::Publisher twist_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
+        position_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
+        twist_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
 
         // Service clients
         arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
@@ -74,15 +79,36 @@ public:
         set_Arm_Disarm(false);
     }
 
-    void requestLanding(float velocity)
+    void requestLanding()
     {
-        //TODO
+        ROS_INFO("Landing Requested");
+        geometry_msgs::Twist velocity = functions::make_twist(0, 0, -0.2, 0, 0, 0);
+        set_Velocity(velocity);
     }
+
     void requestTakeoff(float altitude){
-        //TODO
+        ROS_INFO("Takeoff Requested");
+        geometry_msgs::PoseStamped pose = functions::make_pose(0, 0, altitude);
+        set_Pose(pose);
     }
+
     void requestHover(float time){
-        //TODO
+        // TODO
+    }
+
+    //-----   MOVEMENT COMMANDS -----//
+    // Overload 1 - Move position with no orientation
+    void move_Position(float _x, float _y, float _z)
+    {
+        geometry_msgs::PoseStamped pose = functions::make_pose(_x, _y, _z);
+        set_Pose(pose);    
+    }
+
+    // Overload 2- Move position with orientation quaternion
+    void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta)
+    {
+        geometry_msgs::PoseStamped pose = functions::make_pose(_x, _y, _z, _qx, _qy, _qz, _theta);
+        set_Pose(pose);
     }
 
 private:
@@ -115,7 +141,7 @@ private:
         ros::Time last_request = ros::Time::now();
         while (ros::ok())
         {
-            if (!current_state.armed && (ros::Time::now() - last_request > ros::Duration(5.0)))
+            if (!current_state.armed && (ros::Time::now() - last_request > ros::Duration(0.25)))
             {
                 if (arming_client.call(arm_command) && arm_command.response.success && _arm)
                 {
@@ -128,5 +154,19 @@ private:
                 last_request = ros::Time::now();
             }
         }
+    }
+
+    void set_Pose(geometry_msgs::PoseStamped _pose)
+    {
+        position_pub.publish(_pose);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    void set_Velocity(geometry_msgs::Twist _twist)
+    {
+        twist_pub.publish(_twist);
+        ros::spinOnce();
+        rate.sleep();
     }
 };

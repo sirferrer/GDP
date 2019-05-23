@@ -13,4 +13,5 @@ public:
     data();
     data(int argc, char **argv, float _rate);
 };
+
 #endif /* DATA_H */

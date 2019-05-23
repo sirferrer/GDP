@@ -8,8 +8,10 @@
 class functions
 {
 public:
-    mavros_msgs::Altitude infrared_altitude;
-    std_msgs::Float64 compass_heading;
     functions();
+    static geometry_msgs::PoseStamped make_pose(float _x, float _y, float _z);
+    static geometry_msgs::PoseStamped make_pose(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
+    static geometry_msgs::Twist make_twist(float _x, float _y, float _z, float _ax, float _ay, float _az);
 };
+
 #endif /* FUNCTIONS_H */

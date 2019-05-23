@@ -7,10 +7,10 @@ public:
     data Data;
     functions Functions;
 
-    GDPdrone(int argc, char **argv)
+    GDPdrone(int argc, char **argv, float rate)
     {
-        Commands = commands(argc, argv, 20);
-        Data = data(argc, argv, 20);
+        Commands = commands(argc, argv, rate);
+        Data = data(argc, argv, rate);
         Functions = functions();
     }
 };
