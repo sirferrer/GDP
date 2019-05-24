@@ -41,8 +41,7 @@ int main(int argc, char **argv)
 
     // Land and disarm
     drone.Commands.requestLandingAuto();
-    drone.Commands.set_Disarmed();
-
+    
     // Exit
     return 0;
 }

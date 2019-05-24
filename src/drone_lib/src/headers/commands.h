@@ -9,6 +9,7 @@
 #include <mavros_msgs/SetMode.h>
 #include <geometry_msgs/PoseStamped.h>
 #include <geometry_msgs/Twist.h>
+#include <geometry_msgs/TwistStamped.h>
 #include <geometry_msgs/Vector3Stamped.h>
 
 class commands
@@ -29,6 +30,8 @@ public:
     void requestHover(float time);
     void move_Position(float _x, float _y, float _z);
     void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
+    void move_Velocity(float _linear_x, float _linear_y, float _linear_z, float _angular_x, float _angular_y, float _angular_z);
+    void move_Acceleration(float _x, float _y, float _z);
 
 private:
     //-----   DATA STORES -----//
@@ -57,8 +60,9 @@ private:
     void set_Arm_Disarm(bool _arm);
     void set_Pose(geometry_msgs::PoseStamped _pose);
     void set_Velocity(geometry_msgs::Twist _twist);
-    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg);
-    void state_cb(const mavros_msgs::State::ConstPtr &msg);
+    void set_Acceleration(geometry_msgs::Vector3Stamped _accel);
+    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg);
+    void state_cb(const mavros_msgs::State::ConstPtr& msg);
 };
 
 #endif

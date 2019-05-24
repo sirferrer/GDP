@@ -10,6 +10,7 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/Altitude.h
@@ -77,6 +78,9 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/ros/types
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/sensor_msgs/Imu.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatFix.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatStatus.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/std_msgs/Float64.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
@@ -84,6 +88,13 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/xmlrpcpp/
 
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/Data.cpp
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/mavros_msgs/Altitude.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/ros/advertise_service_options.h
@@ -141,6 +152,9 @@ CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/ros/types.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/sensor_msgs/Imu.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatFix.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatStatus.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/std_msgs/Float64.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
@@ -153,6 +167,7 @@ CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
+CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
@@ -225,6 +240,7 @@ CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/Altitude.h
@@ -292,6 +308,9 @@ CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/ros/types
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/sensor_msgs/Imu.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatFix.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatStatus.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/std_msgs/Float64.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h
@@ -307,6 +326,7 @@ CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_m
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/Altitude.h
@@ -374,6 +394,9 @@ CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/ros/types.
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/ros/wall_timer.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/ros/wall_timer_options.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/rosconsole/macros_generated.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/sensor_msgs/Imu.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatFix.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/sensor_msgs/NavSatStatus.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/std_msgs/Float64.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/std_msgs/Header.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/xmlrpcpp/XmlRpcDecl.h

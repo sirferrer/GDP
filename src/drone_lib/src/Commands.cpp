@@ -14,8 +14,8 @@ commands::commands(float _rate)
 
     // Publishers
     position_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
-    velocity_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
-    acceleration_pub = nh.advertise<geometry_msgs::Vector3Stamped>("setpoint_accel/accel", 10);
+    velocity_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped ", 10);
+    acceleration_pub = nh.advertise<geometry_msgs::Vector3Stamped>("mavros/setpoint_accel/accel", 10);
 
     // Service clients
     arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
@@ -36,9 +36,9 @@ void commands::await_Connection()
 
 void commands::start_dataStream()
 {
-    for (int i = 300; ros::ok() && i > 0; --i)
+    for (int i = 20; ros::ok() && i > 0; --i)
     {
-        position_pub.publish(functions::make_pose(0, 0, 0));
+        acceleration_pub.publish(functions::make_acceleration(0, 0, 0));
         ros::spinOnce();
         rate.sleep();
     }
@@ -111,6 +111,19 @@ void commands::move_Position(float _x, float _y, float _z, float _qx, float _qy,
     set_Pose(pose);
 }
 
+// Move at given velocity
+void commands::move_Velocity(float _linear_x, float _linear_y, float _linear_z, float _angular_x, float _angular_y, float _angular_z)
+{
+    geometry_msgs::Twist velocity = functions::make_twist(_linear_x, _linear_y, _linear_z, _angular_x, _angular_y, _angular_z);
+    set_Velocity(velocity);
+}
+
+void commands::move_Acceleration(float _x, float _y, float _z)
+{
+    geometry_msgs::Vector3Stamped acceleration = functions::make_acceleration(_x, _y, _z);
+    set_Acceleration(acceleration);
+}
+
 void commands::set_Mode(std::string _mode)
 {
     mavros_msgs::SetMode mode;
@@ -171,15 +184,22 @@ void commands::set_Velocity(geometry_msgs::Twist _twist)
     rate.sleep();
 }
 
+void commands::set_Acceleration(geometry_msgs::Vector3Stamped _accel)
+{
+    acceleration_pub.publish(_accel);
+    ros::spinOnce();
+    rate.sleep();
+}
+
 //-----   CALLBACKS -----//
 // State subscriber callback function
-void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg)
+void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg)
 {
     extended_state = *msg;
 }
 
 // State subscriber callback function
-void commands::state_cb(const mavros_msgs::State::ConstPtr &msg)
+void commands::state_cb(const mavros_msgs::State::ConstPtr& msg)
 {
     current_state = *msg;
 }
