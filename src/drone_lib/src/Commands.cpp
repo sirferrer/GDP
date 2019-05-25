@@ -2,6 +2,11 @@
 #include "headers/functions.h"
 #include "headers/data.h"
 
+// TODO as of 24 May 2019
+// Add target position in different frames of references and test
+// Add GPS waypointing
+// Add missing sensors
+
 //-----   METHODS -----//
 // Default constructor
 commands::commands(float _rate)

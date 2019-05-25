@@ -20,25 +20,10 @@ int main(int argc, char **argv)
     drone.Commands.set_Armed();
 
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
-    int altitude = 1;
+    int altitude = 0.35;
     int time_takeoff = 250;
     drone.Commands.requestTakeoff(altitude, time_takeoff);
-
-    // Move about
-    ROS_INFO("GDPdrone: Moving to First Position");
-    for (int time_at_position = 125; time_at_position > 0; time_at_position--)
-    {
-        drone.Commands.move_Position(-1, 0, 1);
-        rate.sleep();
-    }
-
-    ROS_INFO("GDPdrone: Moving to Second Position");
-    for (int time_at_position = 125; time_at_position > 0; time_at_position--)
-    {
-        drone.Commands.move_Position(1, 0, 1);
-        rate.sleep();
-    }
-
+    
     // Land and disarm
     drone.Commands.requestLandingAuto();
     
