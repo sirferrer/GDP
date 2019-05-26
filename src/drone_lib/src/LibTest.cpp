@@ -13,7 +13,6 @@ int main(int argc, char **argv)
 
     // Initialise connection and set offboard mode
     drone.Commands.await_Connection();
-    drone.Commands.start_dataStream();
     drone.Commands.set_Offboard();
 
     // Arm the motors
@@ -22,11 +21,45 @@ int main(int argc, char **argv)
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
     int altitude = 0.35;
     int time_takeoff = 250;
-    drone.Commands.requestTakeoff(altitude, time_takeoff);
-    
+    //drone.Commands.requestTakeoff(altitude, time_takeoff);
+    ROS_INFO("Taking Off");
+    for (int count = 1; count < 200; count++)
+    {
+        drone.Commands.move_Position_Local(0, 0, 5, 180);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    /*
+    ROS_INFO("Velocity Command");
+    for (int count = 1; count < 100; count++)
+    {
+        drone.Commands.move_Velocity_Local(0, 1, 1, 0);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    ROS_INFO("Acceleration Command");
+    for (int count = 1; count < 25; count++)
+    {
+        drone.Commands.move_Acceleration_Local(0.1, 0, 0.8);
+        ros::spinOnce();
+        rate.sleep();
+    }
+    /**/
+
+    ROS_INFO("Global Position Command");
+    for (int count = 1; count < 250; count++)
+    {
+        drone.Commands.move_Position_Global(0, 5.1, 5.1, 90);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
     // Land and disarm
+    // TODO: There should be a check at the end
     drone.Commands.requestLandingAuto();
-    
+
     // Exit
     return 0;
 }

@@ -1,22 +1,22 @@
 Determining if the pthread_create exist failed with the following output:
 Change Dir: /home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d840b/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d840b.dir/build.make CMakeFiles/cmTC_d840b.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3fb77/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3fb77.dir/build.make CMakeFiles/cmTC_3fb77.dir/build
 make[1]: Entering directory '/home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d840b.dir/CheckSymbolExists.c.o
-/usr/bin/cc    -o CMakeFiles/cmTC_d840b.dir/CheckSymbolExists.c.o   -c /home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp/CheckSymbolExists.c
-Linking C executable cmTC_d840b
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d840b.dir/link.txt --verbose=1
-/usr/bin/cc      -rdynamic CMakeFiles/cmTC_d840b.dir/CheckSymbolExists.c.o  -o cmTC_d840b 
-CMakeFiles/cmTC_d840b.dir/CheckSymbolExists.c.o: In function `main':
+Building C object CMakeFiles/cmTC_3fb77.dir/CheckSymbolExists.c.o
+/usr/bin/cc    -o CMakeFiles/cmTC_3fb77.dir/CheckSymbolExists.c.o   -c /home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3fb77
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3fb77.dir/link.txt --verbose=1
+/usr/bin/cc      -rdynamic CMakeFiles/cmTC_3fb77.dir/CheckSymbolExists.c.o  -o cmTC_3fb77 
+CMakeFiles/cmTC_3fb77.dir/CheckSymbolExists.c.o: In function `main':
 CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d840b.dir/build.make:97: recipe for target 'cmTC_d840b' failed
-make[1]: *** [cmTC_d840b] Error 1
+CMakeFiles/cmTC_3fb77.dir/build.make:97: recipe for target 'cmTC_3fb77' failed
+make[1]: *** [cmTC_3fb77] Error 1
 make[1]: Leaving directory '/home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d840b/fast' failed
-make: *** [cmTC_d840b/fast] Error 2
+Makefile:126: recipe for target 'cmTC_3fb77/fast' failed
+make: *** [cmTC_3fb77/fast] Error 2
 
 File /home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
 /* */
@@ -36,20 +36,20 @@ int main(int argc, char** argv)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_d6721/fast"
-/usr/bin/make -f CMakeFiles/cmTC_d6721.dir/build.make CMakeFiles/cmTC_d6721.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_34121/fast"
+/usr/bin/make -f CMakeFiles/cmTC_34121.dir/build.make CMakeFiles/cmTC_34121.dir/build
 make[1]: Entering directory '/home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_d6721.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d6721.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
-Linking C executable cmTC_d6721
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d6721.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_d6721.dir/CheckFunctionExists.c.o  -o cmTC_d6721 -lpthreads 
+Building C object CMakeFiles/cmTC_34121.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_34121.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_34121
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_34121.dir/link.txt --verbose=1
+/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    -rdynamic CMakeFiles/cmTC_34121.dir/CheckFunctionExists.c.o  -o cmTC_34121 -lpthreads 
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-CMakeFiles/cmTC_d6721.dir/build.make:97: recipe for target 'cmTC_d6721' failed
-make[1]: *** [cmTC_d6721] Error 1
+CMakeFiles/cmTC_34121.dir/build.make:97: recipe for target 'cmTC_34121' failed
+make[1]: *** [cmTC_34121] Error 1
 make[1]: Leaving directory '/home/pablo/GDP_Git/build/test_mavros/CMakeFiles/CMakeTmp'
-Makefile:126: recipe for target 'cmTC_d6721/fast' failed
-make: *** [cmTC_d6721/fast] Error 2
+Makefile:126: recipe for target 'cmTC_34121/fast' failed
+make: *** [cmTC_34121/fast] Error 2
 
 

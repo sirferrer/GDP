@@ -1,0 +1,36 @@
+TO DO:
+1. Add GPS home position
+2. Can you stop sending command once target is reached?
+3. Send commands by time or by target reached?
+4. Add ways to switch frames (could be a property of Commands)
+5. Make sample missions
+6. Make two takeoffs and two landings with and without GPS
+
+TO TEST:
+
+
+LOGS:
+/////////////// 26 - 05 -2019 ///////////////
+Fixed:
+mavros/setpoint_velocity/cmd_vel_unstamped had an extra space, causing failure.
+removed function StartDataStream(); set_mode now sends points until enabled, much faster and reliable.
+set_position now uses target position, much simpler to use.
+
+/////////////// 24 - 05 -2019 ///////////////
+Commands:
+- Velocity Commands
+- Acceleration Commands
+
+Data:
+- GPS
+- Imu
+- Pose
+- Velocity
+
+Functions:
+- Make velocity vectors
+- Make acceleration vectors (edited) 
+
+
+/////////////// 23 - 05 -2019 ///////////////
+- First version

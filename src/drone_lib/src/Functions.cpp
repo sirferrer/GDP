@@ -1,9 +1,8 @@
 #include "headers/functions.h"
 
-functions::functions()
-{
-    pi = 3.1415926535;
-}
+functions::functions(){}
+
+const float functions::pi = 3.1415926535f;
 
 double functions::DegToRad(float x)
 {

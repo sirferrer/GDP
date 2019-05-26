@@ -18,6 +18,8 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_ms
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetMode.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h
@@ -167,7 +169,6 @@ CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Twist.h
-CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
 CMakeFiles/drone_node.dir/src/Functions.cpp.o: /opt/ros/melodic/include/ros/advertise_options.h
@@ -248,6 +249,8 @@ CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_ms
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetMode.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h
@@ -334,6 +337,8 @@ CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msg
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetMode.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
 CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h

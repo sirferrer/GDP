@@ -19,6 +19,8 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o
  /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
  /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
  /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+ /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+ /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
  /opt/ros/melodic/include/mavros_msgs/SetMode.h
  /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
  /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h
@@ -168,7 +170,6 @@ CMakeFiles/drone_node.dir/src/Functions.cpp.o
  /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
  /opt/ros/melodic/include/geometry_msgs/Quaternion.h
  /opt/ros/melodic/include/geometry_msgs/Twist.h
- /opt/ros/melodic/include/geometry_msgs/TwistStamped.h
  /opt/ros/melodic/include/geometry_msgs/Vector3.h
  /opt/ros/melodic/include/geometry_msgs/Vector3Stamped.h
  /opt/ros/melodic/include/ros/advertise_options.h
@@ -249,6 +250,8 @@ CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o
  /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
  /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
  /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+ /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+ /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
  /opt/ros/melodic/include/mavros_msgs/SetMode.h
  /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
  /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h
@@ -335,6 +338,8 @@ CMakeFiles/drone_node.dir/src/LibTest.cpp.o
  /opt/ros/melodic/include/mavros_msgs/CommandBoolRequest.h
  /opt/ros/melodic/include/mavros_msgs/CommandBoolResponse.h
  /opt/ros/melodic/include/mavros_msgs/ExtendedState.h
+ /opt/ros/melodic/include/mavros_msgs/GlobalPositionTarget.h
+ /opt/ros/melodic/include/mavros_msgs/PositionTarget.h
  /opt/ros/melodic/include/mavros_msgs/SetMode.h
  /opt/ros/melodic/include/mavros_msgs/SetModeRequest.h
  /opt/ros/melodic/include/mavros_msgs/SetModeResponse.h

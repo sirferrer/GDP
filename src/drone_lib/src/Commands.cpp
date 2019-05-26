@@ -19,8 +19,10 @@ commands::commands(float _rate)
 
     // Publishers
     position_pub = nh.advertise<geometry_msgs::PoseStamped>("mavros/setpoint_position/local", 10);
-    velocity_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped ", 10);
+    velocity_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
     acceleration_pub = nh.advertise<geometry_msgs::Vector3Stamped>("mavros/setpoint_accel/accel", 10);
+    target_pub_local = nh.advertise<mavros_msgs::PositionTarget>("mavros/setpoint_raw/local", 10);
+    target_pub_global = nh.advertise<mavros_msgs::GlobalPositionTarget>("mavros/setpoint_raw/global",10);
 
     // Service clients
     arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
@@ -80,55 +82,90 @@ void commands::requestLanding()
     // TODO: extended state does not work
     while ((ros::ok() && extended_state.landed_state != 1))
     {
-        set_Velocity(velocity);
+        velocity_pub.publish(velocity);
     }
 }
 
-void commands::requestTakeoff(float altitude, float counter)
+void commands::requestTakeoff(float _altitude, float _counter)
 {
-
     ROS_INFO("GDPdrone: Takeoff Requested");
-    for (int i = counter; i > 0; i--)
+    for (int i = _counter; i > 0; i--)
     {
-        geometry_msgs::PoseStamped pose = functions::make_pose(0, 0, altitude);
-        set_Pose(pose);
+        move_Position_Local(0, 0, _altitude, 0);
     }
     ROS_INFO("GDPdrone: GDPTakeoff Completed");
 }
 
-void commands::requestHover(float time)
+void commands::requestHover(float _time)
 {
     // TODO
 }
 
 //-----   MOVEMENT COMMANDS -----//
-// Overload 1 - Move position with no orientation
-void commands::move_Position(float _x, float _y, float _z)
+
+void commands::move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg)
 {
-    geometry_msgs::PoseStamped pose = functions::make_pose(_x, _y, _z);
-    set_Pose(pose);
+    mavros_msgs::PositionTarget pos;
+    pos.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+    pos.type_mask = mavros_msgs::PositionTarget::IGNORE_VX | mavros_msgs::PositionTarget::IGNORE_VY |
+                    mavros_msgs::PositionTarget::IGNORE_VZ | mavros_msgs::PositionTarget::IGNORE_AFX |
+                    mavros_msgs::PositionTarget::IGNORE_AFY | mavros_msgs::PositionTarget::IGNORE_AFZ |
+                    mavros_msgs::PositionTarget::FORCE | mavros_msgs::PositionTarget::IGNORE_YAW_RATE;
+    pos.position.x = _x;
+    pos.position.y = _y;
+    pos.position.z = _z;
+    pos.yaw = functions::DegToRad(_yaw_angle_deg);
+    target_pub_local.publish(pos);
 }
 
-// Overload 2- Move position with orientation quaternion
-void commands::move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta)
+void commands::move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s)
 {
-    geometry_msgs::PoseStamped pose = functions::make_pose(_x, _y, _z, _qx, _qy, _qz, _theta);
-    set_Pose(pose);
+    mavros_msgs::PositionTarget pos;
+    pos.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+    pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
+                    mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
+                    mavros_msgs::PositionTarget::IGNORE_AFY | mavros_msgs::PositionTarget::IGNORE_AFZ |
+                    mavros_msgs::PositionTarget::FORCE | mavros_msgs::PositionTarget::IGNORE_YAW;
+    pos.velocity.x = _x;
+    pos.velocity.y = _y;
+    pos.velocity.z = _z;
+    pos.yaw_rate = functions::DegToRad(_yaw_rate_deg_s);
+    target_pub_local.publish(pos);
 }
 
-// Move at given velocity
-void commands::move_Velocity(float _linear_x, float _linear_y, float _linear_z, float _angular_x, float _angular_y, float _angular_z)
+void commands::move_Acceleration_Local(float _x, float _y, float _z)
 {
-    geometry_msgs::Twist velocity = functions::make_twist(_linear_x, _linear_y, _linear_z, _angular_x, _angular_y, _angular_z);
-    set_Velocity(velocity);
+    mavros_msgs::PositionTarget pos;
+
+    pos.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+    pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
+                    mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_VX |
+                    mavros_msgs::PositionTarget::IGNORE_VY | mavros_msgs::PositionTarget::IGNORE_VZ |
+                    mavros_msgs::PositionTarget::IGNORE_YAW;
+    pos.acceleration_or_force.x = _x;
+    pos.acceleration_or_force.y = _y;
+    pos.acceleration_or_force.z = _z;
+    target_pub_local.publish(pos);
 }
 
-void commands::move_Acceleration(float _x, float _y, float _z)
+void commands::move_Position_Global(float _x, float _y, float _z, float _yaw_angle_deg)
 {
-    geometry_msgs::Vector3Stamped acceleration = functions::make_acceleration(_x, _y, _z);
-    set_Acceleration(acceleration);
+    mavros_msgs::GlobalPositionTarget pos;
+    pos.header.stamp=ros::Time::now();
+    pos.header.frame_id = 1;
+    pos.coordinate_frame = mavros_msgs::GlobalPositionTarget::FRAME_GLOBAL_INT;
+    pos.type_mask = mavros_msgs::GlobalPositionTarget::IGNORE_VX | mavros_msgs::GlobalPositionTarget::IGNORE_VY |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_VZ | mavros_msgs::GlobalPositionTarget::IGNORE_AFX |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_AFY | mavros_msgs::GlobalPositionTarget::IGNORE_AFZ |
+                    mavros_msgs::GlobalPositionTarget::FORCE | mavros_msgs::GlobalPositionTarget::IGNORE_YAW;
+    pos.longitude = _x;
+    pos.latitude = _y;
+    pos.altitude = _z;
+    // pos.yaw = functions::DegToRad(_yaw_angle_deg);
+    target_pub_global.publish(pos);
 }
 
+//-----   PRIVATE -----//
 void commands::set_Mode(std::string _mode)
 {
     mavros_msgs::SetMode mode;
@@ -139,6 +176,7 @@ void commands::set_Mode(std::string _mode)
     {
         if (ros::Time::now() - last_request > ros::Duration(0.25))
         {
+            acceleration_pub.publish(functions::make_acceleration(0, 0, 0));
             set_mode_client.call(mode);
             last_request = ros::Time::now();
             ros::spinOnce();
@@ -175,36 +213,15 @@ void commands::set_Arm_Disarm(bool _arm)
     }
 }
 
-void commands::set_Pose(geometry_msgs::PoseStamped _pose)
-{
-    position_pub.publish(_pose);
-    ros::spinOnce();
-    rate.sleep();
-}
-
-void commands::set_Velocity(geometry_msgs::Twist _twist)
-{
-    velocity_pub.publish(_twist);
-    ros::spinOnce();
-    rate.sleep();
-}
-
-void commands::set_Acceleration(geometry_msgs::Vector3Stamped _accel)
-{
-    acceleration_pub.publish(_accel);
-    ros::spinOnce();
-    rate.sleep();
-}
-
 //-----   CALLBACKS -----//
 // State subscriber callback function
-void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg)
+void commands::ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg)
 {
     extended_state = *msg;
 }
 
 // State subscriber callback function
-void commands::state_cb(const mavros_msgs::State::ConstPtr& msg)
+void commands::state_cb(const mavros_msgs::State::ConstPtr &msg)
 {
     current_state = *msg;
 }

@@ -9,10 +9,10 @@
 class functions
 {
 public:
-    float pi;
+    static const float pi;
     functions();
-    double DegToRad(float x);
-    double RadToDeg(float x);
+    static double DegToRad(float x);
+    static double RadToDeg(float x);
     static geometry_msgs::PoseStamped make_pose(float _x, float _y, float _z);
     static geometry_msgs::PoseStamped make_pose(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
     static geometry_msgs::Twist make_twist(float _x, float _y, float _z, float _ax, float _ay, float _az);

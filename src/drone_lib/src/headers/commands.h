@@ -11,11 +11,13 @@
 #include <geometry_msgs/Twist.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <geometry_msgs/Vector3Stamped.h>
+#include <mavros_msgs/PositionTarget.h>
+#include <mavros_msgs/GlobalPositionTarget.h>
 
 class commands
 {
-    // VARIABLES
 public:
+    //-----   PUBLIC METHODS -----//
     commands();
     commands(float _rate);
 
@@ -26,43 +28,42 @@ public:
     void set_Disarmed();
     void requestLanding();
     void requestLandingAuto();
-    void requestTakeoff(float altitude, float counter);
-    void requestHover(float time);
-    void move_Position(float _x, float _y, float _z);
-    void move_Position(float _x, float _y, float _z, float _qx, float _qy, float _qz, float _theta);
-    void move_Velocity(float _linear_x, float _linear_y, float _linear_z, float _angular_x, float _angular_y, float _angular_z);
-    void move_Acceleration(float _x, float _y, float _z);
+    void requestTakeoff(float _altitude, float _counter);
+    void requestHover(float _time);
+    void move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg);
+    void move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s);
+    void move_Acceleration_Local(float _x, float _y, float _z);
+    void move_Position_Global(float _x, float _y, float _z, float _yaw_angle_deg);
 
 private:
-    //-----   DATA STORES -----//
-    // Store controller extended state
-    mavros_msgs::ExtendedState extended_state;
+    //-----   PRIVATE PROPERTIES -----//
+    ros::NodeHandle nh;
+    ros::Rate rate = ros::Rate(25.0);
 
-    // Store controller state
+    //-----   PRIVATE DATA STORES -----//
+    mavros_msgs::ExtendedState extended_state;
     mavros_msgs::State current_state;
 
-    //-----   CLIENTS -----//
+    //-----   PRIVATE CLIENTS -----//
     ros::ServiceClient set_mode_client;
     ros::ServiceClient arming_client;
 
-    //-----   PUBLISHERS -----//
+    //-----   PRIVATE PUBLISHERS -----//
     ros::Publisher position_pub;
     ros::Publisher velocity_pub;
     ros::Publisher acceleration_pub;
+    ros::Publisher target_pub_local;
+    ros::Publisher target_pub_global;
 
-    // METHODS
-    ros::NodeHandle nh;
-    ros::Rate rate = ros::Rate(25.0);
+    //-----   PRIVATE SUBSCRIBERS -----//
     ros::Subscriber state_sub;
     ros::Subscriber state_sub_ext;
 
+    //-----   PRIVATE METHODS -----//
     void set_Mode(std::string _mode);
     void set_Arm_Disarm(bool _arm);
-    void set_Pose(geometry_msgs::PoseStamped _pose);
-    void set_Velocity(geometry_msgs::Twist _twist);
-    void set_Acceleration(geometry_msgs::Vector3Stamped _accel);
-    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr& msg);
-    void state_cb(const mavros_msgs::State::ConstPtr& msg);
+    void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg);
+    void state_cb(const mavros_msgs::State::ConstPtr &msg);
 };
 
 #endif

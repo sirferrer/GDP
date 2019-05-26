@@ -1,7 +1,0 @@
-[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kvoid commands::requestLanding()[m[K’:
-[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:71:76:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K)[m[K’ token
-     while((ros::ok() && extended_state.landed_state != 1) || (ros::ok() && [01;31m[K)[m[K)
-                                                                            [01;31m[K^[m[K
-make[2]: *** [CMakeFiles/drone_node.dir/src/Commands.cpp.o] Error 1
-make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
-make: *** [all] Error 2

@@ -1,4 +1,0 @@
-make[2]: *** No rule to make target '/home/pablo/GDP_Git/src/drone_lib/src/Test.cpp', needed by 'CMakeFiles/drone_node.dir/src/Test.cpp.o'. Stop.
-make[2]: *** Waiting for unfinished jobs....
-make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
-make: *** [all] Error 2
