@@ -8,7 +8,7 @@
 #include <sensor_msgs/Imu.h>
 #include <geometry_msgs/TwistStamped.h>
 #include <geometry_msgs/PoseStamped.h>
-
+#include <sensor_msgs/LaserScan.h>
 
 class data
 {
@@ -17,6 +17,7 @@ public:
     mavros_msgs::Altitude infrared_altitude;
     std_msgs::Float64 compass_heading;
     sensor_msgs::NavSatFix gps_raw;
+    sensor_msgs::LaserScan lidar;
     sensor_msgs::Imu imu;
     geometry_msgs::PoseStamped local_pose;
     geometry_msgs::TwistStamped local_velocity;
@@ -36,6 +37,7 @@ private:
     ros::Subscriber imu_sub;
     ros::Subscriber pose_sub;
     ros::Subscriber velocity_sub;
+    ros::Subscriber lidar_sub;
 
     void altitude_cb(const mavros_msgs::Altitude::ConstPtr& msg);
     void heading_cb(const std_msgs::Float64::ConstPtr& msg); 
@@ -43,6 +45,7 @@ private:
     void imu_cb(const sensor_msgs::Imu::ConstPtr& msg);
     void pose_cb(const geometry_msgs::PoseStamped::ConstPtr &msg);
     void velocity_cb(const geometry_msgs::TwistStamped::ConstPtr &msg);
+    void lidar_cb(const sensor_msgs::LaserScan::ConstPtr &msg);
 };
 
 #endif /* DATA_H */

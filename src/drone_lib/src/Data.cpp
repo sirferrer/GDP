@@ -13,6 +13,9 @@ data::data(float _rate)
     // Subscribe to GPS Data
     gps_sub = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/raw/fix", 10, &data::gps_cb, this);
 
+    // Subscribe to LiDar Data
+    lidar_sub = nh.subscribe<sensor_msgs::LaserScan>("/mavros/laser/scan", 10, &data::lidar_cb, this);
+
     // Subscribe to IMU Data
     imu_sub = nh.subscribe<sensor_msgs::Imu>("/mavros/imu/data", 10, &data::imu_cb, this);
 
@@ -39,6 +42,12 @@ void data::heading_cb(const std_msgs::Float64::ConstPtr &msg)
 void data::gps_cb(const sensor_msgs::NavSatFix::ConstPtr &msg)
 {
     gps_raw = *msg;
+}
+
+// LiDar subscriber callback function
+void data::lidar_cb(const sensor_msgs::LaserScan::ConstPtr &msg)
+{
+    lidar = *msg;
 }
 
 // IMU subscriber callback function

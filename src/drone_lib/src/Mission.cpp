@@ -19,42 +19,60 @@ int main(int argc, char **argv)
     drone.Commands.set_Armed();
 
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
-    int altitude = 0.35;
+    float altitude = 0.35;
     int time_takeoff = 250;
-    //drone.Commands.requestTakeoff(altitude, time_takeoff);
-    ROS_INFO("Taking Off");
-    for (int count = 1; count < 400; count++)
+    //drone.Commands.request_Takeoff(altitude, time_takeoff);
+
+    ROS_INFO("Local Acceleration Command");
+    for (int count = 1; count < 250; count++)
     {
-        drone.Commands.move_Position_Local(0, 0, 5, 180);
+        drone.Commands.move_Position_Local(1, 0, 1, 45, "BODY");
         ros::spinOnce();
         rate.sleep();
     }
 
-    /*
-    ROS_INFO("Velocity Command");
+    ROS_INFO("Local Acceleration Command 2");
     for (int count = 1; count < 100; count++)
     {
-        drone.Commands.move_Velocity_Local(0, 1, 1, 0);
+        drone.Commands.move_Acceleration_Local(0, 0, 0.51, "LOCAL");
         ros::spinOnce();
         rate.sleep();
     }
 
-    ROS_INFO("Acceleration Command");
-    for (int count = 1; count < 25; count++)
+   /*
+    ROS_INFO("Global Position Command");
+    for (int count = 1; count < 200; count++)
     {
-        drone.Commands.move_Acceleration_Local(0.1, 0, 0.8);
+        drone.Commands.move_Position_Global(47.39770, 8.5456, 545, 90, "NOT IMPLEMENTED");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    ROS_INFO("Local Velocity Command");
+    for (int count = 1; count < 100; count++)
+    {
+        drone.Commands.move_Velocity_Local(1, 1, 1, 0, "LOCAL");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+     ROS_INFO("Local Acceleration Command");
+    for (int count = 1; count < 50; count++)
+    {
+        drone.Commands.move_Acceleration_Local(0, 0.1, 0.1, "LOCAL");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+   /*
+    ROS_INFO("Global Acceleration Command");
+    for (int count = 1; count < 150; count++)
+    {
+        drone.Commands.move_Velocity_Global(0.1, 0.3, 9.81 + 0.1, 0);
         ros::spinOnce();
         rate.sleep();
     }
     /**/
-
-    ROS_INFO("Global Position Command");
-    for (int count = 1; count < 550; count++)
-    {
-        drone.Commands.move_Position_Global(47.39738, 8.5456, 545, 90);
-        ros::spinOnce();
-        rate.sleep();
-    }
 
     // Land and disarm
     // TODO: There should be a check at the end

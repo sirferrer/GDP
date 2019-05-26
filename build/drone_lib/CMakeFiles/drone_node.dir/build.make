@@ -57,28 +57,28 @@ include CMakeFiles/drone_node.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/drone_node.dir/flags.make
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o: CMakeFiles/drone_node.dir/flags.make
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/GDP_Git/build/drone_lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/drone_node.dir/src/LibTest.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/drone_node.dir/src/LibTest.cpp.o -c /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp
+CMakeFiles/drone_node.dir/src/Mission.cpp.o: CMakeFiles/drone_node.dir/flags.make
+CMakeFiles/drone_node.dir/src/Mission.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/Mission.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/GDP_Git/build/drone_lib/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/drone_node.dir/src/Mission.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/drone_node.dir/src/Mission.cpp.o -c /home/pablo/GDP_Git/src/drone_lib/src/Mission.cpp
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/drone_node.dir/src/LibTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp > CMakeFiles/drone_node.dir/src/LibTest.cpp.i
+CMakeFiles/drone_node.dir/src/Mission.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/drone_node.dir/src/Mission.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/GDP_Git/src/drone_lib/src/Mission.cpp > CMakeFiles/drone_node.dir/src/Mission.cpp.i
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/drone_node.dir/src/LibTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/GDP_Git/src/drone_lib/src/LibTest.cpp -o CMakeFiles/drone_node.dir/src/LibTest.cpp.s
+CMakeFiles/drone_node.dir/src/Mission.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/drone_node.dir/src/Mission.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/GDP_Git/src/drone_lib/src/Mission.cpp -o CMakeFiles/drone_node.dir/src/Mission.cpp.s
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o.requires:
+CMakeFiles/drone_node.dir/src/Mission.cpp.o.requires:
 
-.PHONY : CMakeFiles/drone_node.dir/src/LibTest.cpp.o.requires
+.PHONY : CMakeFiles/drone_node.dir/src/Mission.cpp.o.requires
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o.provides: CMakeFiles/drone_node.dir/src/LibTest.cpp.o.requires
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.o.provides.build
-.PHONY : CMakeFiles/drone_node.dir/src/LibTest.cpp.o.provides
+CMakeFiles/drone_node.dir/src/Mission.cpp.o.provides: CMakeFiles/drone_node.dir/src/Mission.cpp.o.requires
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Mission.cpp.o.provides.build
+.PHONY : CMakeFiles/drone_node.dir/src/Mission.cpp.o.provides
 
-CMakeFiles/drone_node.dir/src/LibTest.cpp.o.provides.build: CMakeFiles/drone_node.dir/src/LibTest.cpp.o
+CMakeFiles/drone_node.dir/src/Mission.cpp.o.provides.build: CMakeFiles/drone_node.dir/src/Mission.cpp.o
 
 
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: CMakeFiles/drone_node.dir/flags.make
@@ -179,7 +179,7 @@ CMakeFiles/drone_node.dir/src/Data.cpp.o.provides.build: CMakeFiles/drone_node.d
 
 # Object files for target drone_node
 drone_node_OBJECTS = \
-"CMakeFiles/drone_node.dir/src/LibTest.cpp.o" \
+"CMakeFiles/drone_node.dir/src/Mission.cpp.o" \
 "CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o" \
 "CMakeFiles/drone_node.dir/src/Commands.cpp.o" \
 "CMakeFiles/drone_node.dir/src/Functions.cpp.o" \
@@ -188,7 +188,7 @@ drone_node_OBJECTS = \
 # External object files for target drone_node
 drone_node_EXTERNAL_OBJECTS =
 
-/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node: CMakeFiles/drone_node.dir/src/LibTest.cpp.o
+/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node: CMakeFiles/drone_node.dir/src/Mission.cpp.o
 /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node: CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o
 /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node: CMakeFiles/drone_node.dir/src/Commands.cpp.o
 /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node: CMakeFiles/drone_node.dir/src/Functions.cpp.o
@@ -222,7 +222,7 @@ CMakeFiles/drone_node.dir/build: /home/pablo/GDP_Git/devel/.private/drone_lib/li
 
 .PHONY : CMakeFiles/drone_node.dir/build
 
-CMakeFiles/drone_node.dir/requires: CMakeFiles/drone_node.dir/src/LibTest.cpp.o.requires
+CMakeFiles/drone_node.dir/requires: CMakeFiles/drone_node.dir/src/Mission.cpp.o.requires
 CMakeFiles/drone_node.dir/requires: CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o.requires
 CMakeFiles/drone_node.dir/requires: CMakeFiles/drone_node.dir/src/Commands.cpp.o.requires
 CMakeFiles/drone_node.dir/requires: CMakeFiles/drone_node.dir/src/Functions.cpp.o.requires

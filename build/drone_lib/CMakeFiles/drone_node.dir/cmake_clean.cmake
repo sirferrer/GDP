@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/drone_node.dir/src/LibTest.cpp.o"
+  "CMakeFiles/drone_node.dir/src/Mission.cpp.o"
   "CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o"
   "CMakeFiles/drone_node.dir/src/Commands.cpp.o"
   "CMakeFiles/drone_node.dir/src/Functions.cpp.o"

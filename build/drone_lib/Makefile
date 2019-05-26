@@ -600,32 +600,32 @@ src/GDPdrone.cpp.s:
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.s
 .PHONY : src/GDPdrone.cpp.s
 
-src/LibTest.o: src/LibTest.cpp.o
+src/Mission.o: src/Mission.cpp.o
 
-.PHONY : src/LibTest.o
+.PHONY : src/Mission.o
 
 # target to build an object file
-src/LibTest.cpp.o:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.o
-.PHONY : src/LibTest.cpp.o
+src/Mission.cpp.o:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Mission.cpp.o
+.PHONY : src/Mission.cpp.o
 
-src/LibTest.i: src/LibTest.cpp.i
+src/Mission.i: src/Mission.cpp.i
 
-.PHONY : src/LibTest.i
+.PHONY : src/Mission.i
 
 # target to preprocess a source file
-src/LibTest.cpp.i:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.i
-.PHONY : src/LibTest.cpp.i
+src/Mission.cpp.i:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Mission.cpp.i
+.PHONY : src/Mission.cpp.i
 
-src/LibTest.s: src/LibTest.cpp.s
+src/Mission.s: src/Mission.cpp.s
 
-.PHONY : src/LibTest.s
+.PHONY : src/Mission.s
 
 # target to generate assembly for a file
-src/LibTest.cpp.s:
-	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/LibTest.cpp.s
-.PHONY : src/LibTest.cpp.s
+src/Mission.cpp.s:
+	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Mission.cpp.s
+.PHONY : src/Mission.cpp.s
 
 # Help Target
 help:
@@ -677,9 +677,9 @@ help:
 	@echo "... src/GDPdrone.o"
 	@echo "... src/GDPdrone.i"
 	@echo "... src/GDPdrone.s"
-	@echo "... src/LibTest.o"
-	@echo "... src/LibTest.i"
-	@echo "... src/LibTest.s"
+	@echo "... src/Mission.o"
+	@echo "... src/Mission.i"
+	@echo "... src/Mission.s"
 .PHONY : help
 
 

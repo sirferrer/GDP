@@ -29,12 +29,14 @@ public:
     void request_LandingAuto();
     void request_Takeoff(float _altitude, float _counter);
     void request_Hover(float _time);
-    void move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg);
-    void move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s);
-    void move_Acceleration_Local(float _x, float _y, float _z);
-    void move_Position_Global(float _latitude, float _longitude, float _altitude, float _yaw_angle_deg);
-    void move_Velocity_Global(float _x, float _y, float _z, float _yaw_angle_deg_s);
-    void move_Acceleration_Global(float _x, float _y, float _z, float _yaw_angle_deg_s);
+
+    void move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg, std::string _frame);
+    void move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s, std::string _frame);
+    void move_Acceleration_Local(float _x, float _y, float _z, std::string _frame);
+
+    void move_Position_Global(float _latitude, float _longitude, float _altitude, float _yaw_angle_deg, std::string _frame);
+    void move_Velocity_Global(float _x, float _y, float _z, float _yaw_angle_deg_s, std::string _frame);
+    void move_Acceleration_Global(float _x, float _y, float _z, float _yaw_angle_deg_s, std::string _frame);
 
 private:
     //-----   PRIVATE PROPERTIES -----//
@@ -55,6 +57,7 @@ private:
     ros::Publisher acceleration_pub;
     ros::Publisher target_pub_local;
     ros::Publisher target_pub_global;
+    ros::Publisher target_pub_global_raw;
 
     //-----   PRIVATE SUBSCRIBERS -----//
     ros::Subscriber state_sub;
@@ -65,6 +68,9 @@ private:
     void set_Arm_Disarm(bool _arm);
     void ext_state_cb(const mavros_msgs::ExtendedState::ConstPtr &msg);
     void state_cb(const mavros_msgs::State::ConstPtr &msg);
+    void make_frame_local(mavros_msgs::PositionTarget *_pos, std::string _frame);
+    void make_frame_global(mavros_msgs::PositionTarget *_pos, std::string _frame);
+    void move_Acceleration_Local(float _x, float _y, float _z); // HIDE FOR NOW
 };
 
 #endif

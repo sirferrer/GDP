@@ -6,12 +6,19 @@ TO DO:
 5. Make sample missions
 6. Make two takeoffs and two landings with and without GPS
 
+------------------------------------------------------------------------------------------------------
 ~cmd/set_home (mavros_msgs/CommandHome)
 Change HOME location.
 ~cmd/takeoff (mavros_msgs/CommandTOL)
 Send takeoff command.
 ~cmd/land (mavros_msgs/CommandTOL)
 Send land command.
+-------------------------------------------------------------------------------------------------------
+https://discuss.px4.io/t/thrust-to-throttle-in-mavros-setpoint-raw-attitude/9029
+throttle = throttle + (a_cmd - a_curr) *k
+Here, a_curr is the value from IMU (mavros/imu/data), a_cmd is the required acceleration/thrust.
+The gain, k should be adjusted. I am using k = 0.00125
+
 
 TO TEST:
 1. fcu_url (string, default: /dev/ttyACM0:57600) FCU connection URL. Using new cable
