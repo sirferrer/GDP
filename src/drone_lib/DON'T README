@@ -6,20 +6,35 @@ TO DO:
 5. Make sample missions
 6. Make two takeoffs and two landings with and without GPS
 
-TO TEST:
+~cmd/set_home (mavros_msgs/CommandHome)
+Change HOME location.
+~cmd/takeoff (mavros_msgs/CommandTOL)
+Send takeoff command.
+~cmd/land (mavros_msgs/CommandTOL)
+Send land command.
 
+TO TEST:
+1. fcu_url (string, default: /dev/ttyACM0:57600) FCU connection URL. Using new cable
 
 LOGS:
 /////////////// 26 - 05 -2019 ///////////////
 Fixed:
-mavros/setpoint_velocity/cmd_vel_unstamped had an extra space, causing failure.
-removed function StartDataStream(); set_mode now sends points until enabled, much faster and reliable.
-set_position now uses target position, much simpler to use.
+1. mavros/setpoint_velocity/cmd_vel_unstamped had an extra space, causing failure.
+2. removed function StartDataStream(); set_mode now sends points until enabled, much faster and reliable.
+3. set_position now uses target position, much simpler to use.
+
+Commands:
+- Position Local (using target)
+- Velocity Local (using target)
+- Acceleration Local (using target)
+- Position Global (using target)
+- Velocity Global (using target)
+- Acceleration Global (using target)
 
 /////////////// 24 - 05 -2019 ///////////////
 Commands:
-- Velocity Commands
-- Acceleration Commands
+- Position
+- Velocity
 
 Data:
 - GPS

@@ -22,7 +22,7 @@ commands::commands(float _rate)
     velocity_pub = nh.advertise<geometry_msgs::Twist>("mavros/setpoint_velocity/cmd_vel_unstamped", 10);
     acceleration_pub = nh.advertise<geometry_msgs::Vector3Stamped>("mavros/setpoint_accel/accel", 10);
     target_pub_local = nh.advertise<mavros_msgs::PositionTarget>("mavros/setpoint_raw/local", 10);
-    target_pub_global = nh.advertise<mavros_msgs::GlobalPositionTarget>("mavros/setpoint_raw/global",10);
+    target_pub_global = nh.advertise<mavros_msgs::GlobalPositionTarget>("mavros/setpoint_position/global", 10);
 
     // Service clients
     arming_client = nh.serviceClient<mavros_msgs::CommandBool>("mavros/cmd/arming");
@@ -41,16 +41,6 @@ void commands::await_Connection()
     ROS_INFO("GDPdrone: Connected");
 }
 
-void commands::start_dataStream()
-{
-    for (int i = 20; ros::ok() && i > 0; --i)
-    {
-        acceleration_pub.publish(functions::make_acceleration(0, 0, 0));
-        ros::spinOnce();
-        rate.sleep();
-    }
-}
-
 void commands::set_Offboard()
 {
     set_Mode("OFFBOARD");
@@ -66,13 +56,13 @@ void commands::set_Disarmed()
     set_Arm_Disarm(false);
 }
 
-void commands::requestLandingAuto()
+void commands::request_LandingAuto()
 {
     ROS_INFO("GDPdrone: Autonomous Landing Requested");
     set_Mode("AUTO.LAND");
 }
 
-void commands::requestLanding()
+void commands::request_Landing()
 {
     // This will trigger the landed failsafe and switch off the motors
     ROS_INFO("GDPdrone: Landing Requested");
@@ -86,7 +76,7 @@ void commands::requestLanding()
     }
 }
 
-void commands::requestTakeoff(float _altitude, float _counter)
+void commands::request_Takeoff(float _altitude, float _counter)
 {
     ROS_INFO("GDPdrone: Takeoff Requested");
     for (int i = _counter; i > 0; i--)
@@ -96,13 +86,12 @@ void commands::requestTakeoff(float _altitude, float _counter)
     ROS_INFO("GDPdrone: GDPTakeoff Completed");
 }
 
-void commands::requestHover(float _time)
+void commands::request_Hover(float _time)
 {
     // TODO
 }
 
 //-----   MOVEMENT COMMANDS -----//
-
 void commands::move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg)
 {
     mavros_msgs::PositionTarget pos;
@@ -148,20 +137,57 @@ void commands::move_Acceleration_Local(float _x, float _y, float _z)
     target_pub_local.publish(pos);
 }
 
-void commands::move_Position_Global(float _x, float _y, float _z, float _yaw_angle_deg)
+void commands::move_Position_Global(float _latitude, float _longitude, float _altitude, float _yaw_angle_deg)
 {
     mavros_msgs::GlobalPositionTarget pos;
-    pos.header.stamp=ros::Time::now();
-    pos.header.frame_id = 1;
+    pos.header.stamp = ros::Time::now();
+
     pos.coordinate_frame = mavros_msgs::GlobalPositionTarget::FRAME_GLOBAL_INT;
     pos.type_mask = mavros_msgs::GlobalPositionTarget::IGNORE_VX | mavros_msgs::GlobalPositionTarget::IGNORE_VY |
                     mavros_msgs::GlobalPositionTarget::IGNORE_VZ | mavros_msgs::GlobalPositionTarget::IGNORE_AFX |
                     mavros_msgs::GlobalPositionTarget::IGNORE_AFY | mavros_msgs::GlobalPositionTarget::IGNORE_AFZ |
                     mavros_msgs::GlobalPositionTarget::FORCE | mavros_msgs::GlobalPositionTarget::IGNORE_YAW;
-    pos.longitude = _x;
-    pos.latitude = _y;
-    pos.altitude = _z;
-    // pos.yaw = functions::DegToRad(_yaw_angle_deg);
+
+    pos.latitude = _latitude;
+    pos.longitude = _longitude;
+    pos.altitude = _altitude;
+    pos.yaw = functions::DegToRad(_yaw_angle_deg);
+    target_pub_global.publish(pos);
+}
+
+void commands::move_Velocity_Global(float _x, float _y, float _z, float _yaw_angle_deg_s)
+{
+    mavros_msgs::GlobalPositionTarget pos;
+    pos.header.stamp = ros::Time::now();
+
+    pos.coordinate_frame = mavros_msgs::GlobalPositionTarget::FRAME_GLOBAL_INT;
+    pos.type_mask = mavros_msgs::GlobalPositionTarget::IGNORE_VX | mavros_msgs::GlobalPositionTarget::IGNORE_VY |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_VZ | mavros_msgs::GlobalPositionTarget::IGNORE_AFX |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_AFY | mavros_msgs::GlobalPositionTarget::IGNORE_AFZ |
+                    mavros_msgs::GlobalPositionTarget::FORCE | mavros_msgs::GlobalPositionTarget::IGNORE_YAW;
+
+    pos.velocity.x = _x;
+    pos.velocity.y = _y;
+    pos.velocity.z = _z;
+    pos.yaw_rate = functions::DegToRad(_yaw_angle_deg_s);
+    target_pub_global.publish(pos);
+}
+
+void commands::move_Acceleration_Global(float _x, float _y, float _z, float _yaw_angle_deg_s)
+{
+    mavros_msgs::GlobalPositionTarget pos;
+    pos.header.stamp = ros::Time::now();
+
+    pos.coordinate_frame = mavros_msgs::GlobalPositionTarget::FRAME_GLOBAL_INT;
+    pos.type_mask = mavros_msgs::GlobalPositionTarget::IGNORE_VX | mavros_msgs::GlobalPositionTarget::IGNORE_VY |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_VZ | mavros_msgs::GlobalPositionTarget::IGNORE_AFX |
+                    mavros_msgs::GlobalPositionTarget::IGNORE_AFY | mavros_msgs::GlobalPositionTarget::IGNORE_AFZ |
+                    mavros_msgs::GlobalPositionTarget::FORCE | mavros_msgs::GlobalPositionTarget::IGNORE_YAW;
+
+    pos.acceleration_or_force.x = _x;
+    pos.acceleration_or_force.y = _y;
+    pos.acceleration_or_force.z = _z;
+    pos.yaw_rate = functions::DegToRad(_yaw_angle_deg_s);
     target_pub_global.publish(pos);
 }
 
