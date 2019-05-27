@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 
     // MISSION STARTS HERE:
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
-    float altitude = 0.35;
+    float altitude = 0.50;
     int time_takeoff = 250;
     drone.Commands.request_Takeoff(altitude, time_takeoff);
 
@@ -27,43 +27,15 @@ int main(int argc, char **argv)
     ROS_INFO("First Command");
     for (int count = 1; count < 250; count++)
     {
-        drone.Commands.move_Position_Local(0, 0, 1, 90, "BODY");
+        drone.Commands.move_Position_Local(0.25, 0.25, altitude, 90, "BODY");
         ros::spinOnce();
         rate.sleep();
     }
 
-    // Accelerate at 1 m/ss Northwards for 10 seconds
     ROS_INFO("Second Command");
-    drone.Commands.reset_Velocities(); // For God's Sake, don't forget this!
     for (int count = 1; count < 250; count++)
     {
-        drone.Commands.move_Acceleration_Local_Trick(1, 0, 0, "BODY", loop_rate);
-        ros::spinOnce();
-        rate.sleep();
-    }
-
-    // Accelerate at 1 m/ss Fowards for 10 seconds (body frame)
-    ROS_INFO("Third Command");
-    drone.Commands.reset_Velocities(); // For God's Sake, don't forget this!
-    for (int count = 1; count < 250; count++)
-    {
-        drone.Commands.move_Acceleration_Local_Trick(1, 0, 0, "LOCAL", loop_rate);
-        ros::spinOnce();
-        rate.sleep();
-    }
-
-    ROS_INFO("Fourth Command, go to GPS Position");
-    for (int count = 1; count < 200; count++)
-    {
-        drone.Commands.move_Position_Global(47.39770, 8.5456, 545, 90, "BODY"); // Here BODY will only be useful for the yaw
-        ros::spinOnce();
-        rate.sleep();
-    }
-
-    ROS_INFO("Fifth Command, Local Velocity Command");
-    for (int count = 1; count < 100; count++)
-    {
-        drone.Commands.move_Velocity_Local(1, 1, 1, 0, "LOCAL");
+        drone.Commands.move_Position_Local(-0.25, -0.25, altitude, -90, "BODY");
         ros::spinOnce();
         rate.sleep();
     }
