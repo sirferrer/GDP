@@ -27,21 +27,24 @@ public:
     void set_Disarmed();
     void request_Landing();
     void request_LandingAuto();
+    void reset_Velocities();
     void request_Takeoff(float _altitude, float _counter);
     void request_Hover(float _time);
 
     void move_Position_Local(float _x, float _y, float _z, float _yaw_angle_deg, std::string _frame);
     void move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s, std::string _frame);
     void move_Acceleration_Local(float _x, float _y, float _z, std::string _frame);
+    void move_Acceleration_Local_Trick(float _x, float _y, float _z, std::string _frame, int rate);
 
     void move_Position_Global(float _latitude, float _longitude, float _altitude, float _yaw_angle_deg, std::string _frame);
-    void move_Velocity_Global(float _x, float _y, float _z, float _yaw_angle_deg_s, std::string _frame);
-    void move_Acceleration_Global(float _x, float _y, float _z, float _yaw_angle_deg_s, std::string _frame);
 
 private:
     //-----   PRIVATE PROPERTIES -----//
     ros::NodeHandle nh;
     ros::Rate rate = ros::Rate(25.0);
+    float velocity_x;
+    float velocity_y;
+    float velocity_z;
 
     //-----   PRIVATE DATA STORES -----//
     mavros_msgs::ExtendedState extended_state;

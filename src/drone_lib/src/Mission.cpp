@@ -8,47 +8,59 @@ int main(int argc, char **argv)
     // Create drone object, this sets everything up
     GDPdrone drone;
 
-    // Set the rate. DEFAULT working frequency is 25 Hz
-    ros::Rate rate = ros::Rate(25.0);
+    // Set the rate. Default working frequency is 25 Hz
+    float loop_rate = 25.0;
+    ros::Rate rate = ros::Rate(loop_rate);
 
-    // Initialise connection and set offboard mode
+    // Initialise and Arm
     drone.Commands.await_Connection();
     drone.Commands.set_Offboard();
-
-    // Arm the motors
     drone.Commands.set_Armed();
 
+    // MISSION STARTS HERE:
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
     float altitude = 0.35;
     int time_takeoff = 250;
-    //drone.Commands.request_Takeoff(altitude, time_takeoff);
+    drone.Commands.request_Takeoff(altitude, time_takeoff);
 
-    ROS_INFO("Local Acceleration Command");
+    // Go one meter up and stay there. Total time 10 seconds
+    ROS_INFO("First Command");
     for (int count = 1; count < 250; count++)
     {
-        drone.Commands.move_Position_Local(1, 0, 1, 45, "BODY");
+        drone.Commands.move_Position_Local(0, 0, 1, 90, "BODY");
         ros::spinOnce();
         rate.sleep();
     }
 
-    ROS_INFO("Local Acceleration Command 2");
-    for (int count = 1; count < 100; count++)
+    // Accelerate at 1 m/ss Northwards for 10 seconds
+    ROS_INFO("Second Command");
+    drone.Commands.reset_Velocities(); // For God's Sake, don't forget this!
+    for (int count = 1; count < 250; count++)
     {
-        drone.Commands.move_Acceleration_Local(0, 0, 0.51, "LOCAL");
+        drone.Commands.move_Acceleration_Local_Trick(1, 0, 0, "BODY", loop_rate);
         ros::spinOnce();
         rate.sleep();
     }
 
-   /*
-    ROS_INFO("Global Position Command");
+    // Accelerate at 1 m/ss Fowards for 10 seconds (body frame)
+    ROS_INFO("Third Command");
+    drone.Commands.reset_Velocities(); // For God's Sake, don't forget this!
+    for (int count = 1; count < 250; count++)
+    {
+        drone.Commands.move_Acceleration_Local_Trick(1, 0, 0, "LOCAL", loop_rate);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    ROS_INFO("Fourth Command, go to GPS Position");
     for (int count = 1; count < 200; count++)
     {
-        drone.Commands.move_Position_Global(47.39770, 8.5456, 545, 90, "NOT IMPLEMENTED");
+        drone.Commands.move_Position_Global(47.39770, 8.5456, 545, 90, "BODY"); // Here BODY will only be useful for the yaw
         ros::spinOnce();
         rate.sleep();
     }
 
-    ROS_INFO("Local Velocity Command");
+    ROS_INFO("Fifth Command, Local Velocity Command");
     for (int count = 1; count < 100; count++)
     {
         drone.Commands.move_Velocity_Local(1, 1, 1, 0, "LOCAL");
@@ -56,26 +68,7 @@ int main(int argc, char **argv)
         rate.sleep();
     }
 
-     ROS_INFO("Local Acceleration Command");
-    for (int count = 1; count < 50; count++)
-    {
-        drone.Commands.move_Acceleration_Local(0, 0.1, 0.1, "LOCAL");
-        ros::spinOnce();
-        rate.sleep();
-    }
-
-   /*
-    ROS_INFO("Global Acceleration Command");
-    for (int count = 1; count < 150; count++)
-    {
-        drone.Commands.move_Velocity_Global(0.1, 0.3, 9.81 + 0.1, 0);
-        ros::spinOnce();
-        rate.sleep();
-    }
-    /**/
-
     // Land and disarm
-    // TODO: There should be a check at the end
     drone.Commands.request_LandingAuto();
 
     // Exit

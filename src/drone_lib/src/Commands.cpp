@@ -8,6 +8,11 @@ commands::commands(float _rate)
 {
     rate = ros::Rate(_rate);
 
+    // Reset Accelerations
+    velocity_x = 0;
+    velocity_y = 0;
+    velocity_z = 0;
+
     // Subscribers
     state_sub = nh.subscribe<mavros_msgs::State>("mavros/state", 10, boost::bind(&commands::state_cb, this, _1));
     state_sub_ext = nh.subscribe<mavros_msgs::ExtendedState>("mavros/extended_state", 10, &commands::ext_state_cb, this);
@@ -138,6 +143,31 @@ void commands::move_Acceleration_Local(float _x, float _y, float _z, std::string
     target_pub_local.publish(pos);
 }
 
+void commands::move_Acceleration_Local_Trick(float _x, float _y, float _z, std::string _frame, int rate)
+{
+    mavros_msgs::PositionTarget pos;
+    commands::make_frame_local(&pos, _frame);
+
+    pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
+                    mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
+                    mavros_msgs::PositionTarget::IGNORE_AFY | mavros_msgs::PositionTarget::IGNORE_AFZ |
+                    mavros_msgs::PositionTarget::FORCE | mavros_msgs::PositionTarget::IGNORE_YAW |
+                    mavros_msgs::PositionTarget::IGNORE_YAW_RATE;
+
+    // Update accumulated velocites. Acc = DV/Dt -> DV = Acc * Dt -> DV = Acc / Freq
+    velocity_x += _x / rate;
+    velocity_y += _y / rate;
+    velocity_z += _z / rate;
+
+    // Send accumulated velocities
+    pos.velocity.x = velocity_x;
+    pos.velocity.y = velocity_y;
+    pos.velocity.z = velocity_z;
+
+    // Publish command
+    target_pub_local.publish(pos);
+}
+
 void commands::move_Acceleration_Local(float _x, float _y, float _z)
 {
     geometry_msgs::Vector3Stamped acceleration = functions::make_acceleration(_x, _y, _z);
@@ -162,6 +192,13 @@ void commands::move_Position_Global(float _latitude, float _longitude, float _al
     pos.altitude = _altitude;
     pos.yaw = functions::DegToRad(_yaw_angle_deg);
     target_pub_global.publish(pos);
+}
+
+void commands::reset_Velocities()
+{
+    velocity_x = 0;
+    velocity_y = 0;
+    velocity_z = 0;
 }
 
 //-----   PRIVATE -----//
@@ -227,11 +264,20 @@ void commands::state_cb(const mavros_msgs::State::ConstPtr &msg)
 
 void commands::make_frame_local(mavros_msgs::PositionTarget *_pos, std::string _frame)
 {
+    // C++ does not support switching with strings, ugly "if" cascade intead
     if (_frame == "BODY")
+    {
+        _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+    }
+    else if (_frame == "LOCAL")
+    {
+        _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_NED;
+    }
+    else if (_frame == "BODY_OFFSET")
     {
         _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_OFFSET_NED;
     }
-    else if (_frame == "LOCAL")
+    else if (_frame == "LOCAL_OFFSET")
     {
         _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_OFFSET_NED;
     }
