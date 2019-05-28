@@ -394,3 +394,28 @@ void commands::pose_cb(const geometry_msgs::PoseStamped::ConstPtr &msg)
 {
     local_pose = *msg;
 }
+
+
+
+
+
+
+
+
+///< Overloaded for Silwood test 1 mission
+void commands::move_Velocity_Local_geraldtest(float _fixed_speed, float _yaw_angle_deg, std::string _frame)
+{
+    mavros_msgs::PositionTarget pos;
+    commands::set_frame(&pos, _frame);
+
+    pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
+                    mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
+                    mavros_msgs::PositionTarget::IGNORE_AFY | mavros_msgs::PositionTarget::IGNORE_AFZ |
+                    mavros_msgs::PositionTarget::FORCE | mavros_msgs::PositionTarget::IGNORE_YAW_RATE;
+    // constant speed of 1.50 m/s
+    pos.yaw = functions::DegToRad(_yaw_angle_deg);
+    pos.velocity.x = cos(pos.yaw) * _fixed_speed;
+    pos.velocity.y = sin(pos.yaw) * _fixed_speed;
+    pos.velocity.z = 0;
+    target_pub_local.publish(pos);
+}

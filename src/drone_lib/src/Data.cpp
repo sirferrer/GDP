@@ -1,5 +1,7 @@
 #include "headers/data.h"
 
+const double pi = 3.14159265358979;
+
 data::data(float _rate)
 {
     rate = ros::Rate(_rate);
@@ -24,6 +26,23 @@ data::data(float _rate)
 
     // Subscribe to Velocity Data
     velocity_sub = nh.subscribe<geometry_msgs::TwistStamped>("/mavros/local_position/velocity", 10, &data::velocity_cb, this);
+
+    ///< Subscribe to target-drone relative xyz
+    target_position_sub = nh.subscribe<geometry_msgs::PointStamped>("/gps_wrtdrone_position" , 10, &data::target_position_cb, this);
+}
+
+///< Yaw angle calculator (in degrees) based off target position relative to drone
+// returns 0 - 360 deg
+double data::CalculateYawAngle() {
+    double yaw = atan2(target_position.point.y , target_position.point.x) * 180.0 / pi;
+    if (yaw < 0) return (360.0 + yaw);
+    else return yaw;
+}
+
+///< Target position subscriber
+void data::target_position_cb(const geometry_msgs::PointStamped::ConstPtr &msg)
+{
+    target_position = *msg;
 }
 
 // Altitude subscriber callback function
