@@ -1,0 +1,170 @@
+In file included from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1:0[m[K:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:53:15:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ in namespace ‘[01m[Kstd_msgs[m[K’ does not name a type
+     std_msgs::[01;31m[KFloat64[m[K compass_heading;
+               [01;31m[K^~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:79:37:[m[K [01;31m[Kerror: [m[K‘[01m[KFloat64[m[K’ in namespace ‘[01m[Kstd_msgs[m[K’ does not name a type
+     void heading_cb(const std_msgs::[01;31m[KFloat64[m[K::ConstPtr& msg);
+                                     [01;31m[K^~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:79:54:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K&[m[K’ token
+     void heading_cb(const std_msgs::Float64::ConstPtr[01;31m[K&[m[K msg);
+                                                      [01;31m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:79:54:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K&[m[K’ token
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:79:54:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ at end of member declaration
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:79:56:[m[K [01;31m[Kerror: [m[K‘[01m[Kmsg[m[K’ does not name a type
+     void heading_cb(const std_msgs::Float64::ConstPtr& [01;31m[Kmsg[m[K);
+                                                        [01;31m[K^~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In constructor ‘[01m[Kcommands::commands(float)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kros::NodeHandle::subscribe<std_msgs::Float64>(const char [36], int, void (commands::*)(...) &, commands*)[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;31m[K)[m[K;
+                                                                                                                         [01;31m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:402:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M), T*, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M), T* obj,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:402:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::)(std_msgs::Float64_<std::allocator<void> >)[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:413:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M) const, T*, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M) const, T* obj,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:413:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  types ‘[01m[Kvoid (T::)(std_msgs::Float64_<std::allocator<void> >) const[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’ have incompatible cv-qualifiers
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:465:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&), T*, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:465:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::)(const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >&)[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:475:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&) const, T*, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:475:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  types ‘[01m[Kvoid (T::)(const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >&) const[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’ have incompatible cv-qualifiers
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:529:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M), const boost::shared_ptr<U>&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M),
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:529:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::)(std_msgs::Float64_<std::allocator<void> >)[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:540:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(M) const, const boost::shared_ptr<U>&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(T::*fp)(M) const,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:540:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  types ‘[01m[Kvoid (T::)(std_msgs::Float64_<std::allocator<void> >) const[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’ have incompatible cv-qualifiers
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:594:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&), const boost::shared_ptr<U>&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:594:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kvoid (T::)(const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >&)[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:605:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class T> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (T::*)(const boost::shared_ptr<const M>&) const, const boost::shared_ptr<U>&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:605:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  types ‘[01m[Kvoid (T::)(const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >&) const[m[K’ and ‘[01m[Kvoid (commands::)(...) &[m[K’ have incompatible cv-qualifiers
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:656:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (*)(M), const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(*fp)(M), const TransportHints& transport_hints = TransportHints())
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:656:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[K&commands::heading_cb[m[K’ (type ‘[01m[Kvoid (commands::*)(...) &[m[K’) to type ‘[01m[Kvoid (*)(std_msgs::Float64_<std::allocator<void> >)[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:704:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, void (*)(const boost::shared_ptr<const M>&), const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, void(*fp)(const boost::shared_ptr<M const>&), const TransportHints& transport_hints = TransportHints())
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:704:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[K&commands::heading_cb[m[K’ (type ‘[01m[Kvoid (commands::*)(...) &[m[K’) to type ‘[01m[Kvoid (*)(const boost::shared_ptr<const std_msgs::Float64_<std::allocator<void> > >&)[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:750:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, const boost::function<void(const boost::shared_ptr<const M>&)>&, const VoidConstPtr&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, const boost::function<void (const boost::shared_ptr<M const>&)>& callback,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:750:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  cannot convert ‘[01m[K(commands*)this[m[K’ (type ‘[01m[Kcommands*[m[K’) to type ‘[01m[Kconst VoidConstPtr& {aka const boost::shared_ptr<const void>&}[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+In file included from [01m[K/opt/ros/melodic/include/ros/ros.h:45:0[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/headers/commands.h:4[m[K,
+                 from [01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:1[m[K:
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:799:14:[m[K [01;36m[Knote: [m[Kcandidate: template<class M, class C> ros::Subscriber ros::NodeHandle::subscribe(const string&, uint32_t, const boost::function<void(C)>&, const VoidConstPtr&, const ros::TransportHints&)
+   Subscriber [01;36m[Ksubscribe[m[K(const std::string& topic, uint32_t queue_size, const boost::function<void (C)>& callback,
+              [01;36m[K^~~~~~~~~[m[K
+[01m[K/opt/ros/melodic/include/ros/node_handle.h:799:14:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20:121:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst boost::function<void(C)>[m[K’ and ‘[01m[Kvoid (commands::*)(...) &[m[K’
+     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &commands::heading_cb, this[01;36m[K)[m[K;
+                                                                                                                         [01;36m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kstd::vector<float> commands::make_frame(std::vector<float>, mavros_msgs::PositionTarget*, std::__cxx11::string)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:268:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[0] = _vector[0] * cos(commands::[01;31m[Kcompass_heading[m[K.data) - _vector[1] * sin(commands::compass_heading.data);
+                                                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:268:109:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[0] = _vector[0] * cos(commands::compass_heading.data) - _vector[1] * sin(commands::[01;31m[Kcompass_heading[m[K.data);
+                                                                                                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:269:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[1] = _vector[0] * sin(commands::[01;31m[Kcompass_heading[m[K.data) + _vector[1] * cos(commands::compass_heading.data);
+                                                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:269:109:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[1] = _vector[0] * sin(commands::compass_heading.data) + _vector[1] * cos(commands::[01;31m[Kcompass_heading[m[K.data);
+                                                                                                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:283:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[0] = _vector[0] * cos(commands::[01;31m[Kcompass_heading[m[K.data) - _vector[1] * sin(commands::compass_heading.data);
+                                                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:283:109:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[0] = _vector[0] * cos(commands::compass_heading.data) - _vector[1] * sin(commands::[01;31m[Kcompass_heading[m[K.data);
+                                                                                                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:284:58:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[1] = _vector[0] * sin(commands::[01;31m[Kcompass_heading[m[K.data) + _vector[1] * cos(commands::compass_heading.data);
+                                                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:284:109:[m[K [01;31m[Kerror: [m[K‘[01m[Kcompass_heading[m[K’ is not a member of ‘[01m[Kcommands[m[K’
+         corrected_vector[1] = _vector[0] * sin(commands::compass_heading.data) + _vector[1] * cos(commands::[01;31m[Kcompass_heading[m[K.data);
+                                                                                                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:304:9:[m[K [01;31m[Kerror: [m[Kreturn-statement with no value, in function returning ‘[01m[Kstd::vector<float>[m[K’ [[01;31m[K-fpermissive[m[K]
+         [01;31m[Kreturn[m[K;
+         [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_node.dir/src/Commands.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

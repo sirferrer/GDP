@@ -1,0 +1,13 @@
+CMakeFiles/drone_node.dir/src/Data.cpp.o: In function `data::heading_cb(boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > const> const&)':
+/home/pablo/GDP_Git/src/drone_lib/src/Data.cpp:37: multiple definition of `data::heading_cb(boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > const> const&)'
+CMakeFiles/drone_node.dir/src/Commands.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:325: first defined here
+CMakeFiles/drone_node.dir/src/Data.cpp.o: In function `data::pose_cb(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&)':
+/home/pablo/GDP_Git/src/drone_lib/src/Data.cpp:61: multiple definition of `data::pose_cb(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&)'
+CMakeFiles/drone_node.dir/src/Commands.cpp.o:/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:331: first defined here
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: In function `commands::commands(float)':
+/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:19: undefined reference to `commands::pose_cb(boost::shared_ptr<geometry_msgs::PoseStamped_<std::allocator<void> > const> const&)'
+/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:20: undefined reference to `commands::heading_cb(boost::shared_ptr<std_msgs::Float64_<std::allocator<void> > const> const&)'
+collect2: error: ld returned 1 exit status
+make[2]: *** [/home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2

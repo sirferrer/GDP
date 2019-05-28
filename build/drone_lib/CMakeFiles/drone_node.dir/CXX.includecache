@@ -55,6 +55,8 @@ mavros_msgs/PositionTarget.h
 -
 mavros_msgs/GlobalPositionTarget.h
 -
+std_msgs/Float64.h
+-
 
 /home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
 ros/ros.h

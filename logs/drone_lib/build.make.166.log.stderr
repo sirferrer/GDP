@@ -1,0 +1,7 @@
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kstd::vector<float> commands::make_frame(std::vector<float>, mavros_msgs::PositionTarget*, std::__cxx11::string)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:304:9:[m[K [01;31m[Kerror: [m[Kreturn-statement with no value, in function returning ‘[01m[Kstd::vector<float>[m[K’ [[01;31m[K-fpermissive[m[K]
+         [01;31m[Kreturn[m[K;
+         [01;31m[K^~~~~~[m[K
+make[2]: *** [CMakeFiles/drone_node.dir/src/Commands.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+make: *** [all] Error 2
