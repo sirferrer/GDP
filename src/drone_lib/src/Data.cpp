@@ -13,7 +13,7 @@ data::data(float _rate)
     compass_sub = nh.subscribe<std_msgs::Float64>("/mavros/global_position/compass_hdg", 10, &data::heading_cb, this);
 
     // Subscribe to GPS Data
-    gps_sub = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/raw/fix", 10, &data::gps_cb, this);
+    gps_sub = nh.subscribe<sensor_msgs::NavSatFix>("/mavros/global_position/global", 10, &data::gps_cb, this);
 
     // Subscribe to LiDar Data
     lidar_sub = nh.subscribe<sensor_msgs::LaserScan>("/laser/scan", 10, &data::lidar_cb, this);
@@ -27,22 +27,40 @@ data::data(float _rate)
     // Subscribe to Velocity Data
     velocity_sub = nh.subscribe<geometry_msgs::TwistStamped>("/mavros/local_position/velocity", 10, &data::velocity_cb, this);
 
-    ///< Subscribe to target-drone relative xyz
-    target_position_sub = nh.subscribe<geometry_msgs::PointStamped>("/gps_wrtdrone_position" , 10, &data::target_position_cb, this);
+    ///< Subscribe to target xyz relative to drone
+    target_position_relative_sub = nh.subscribe<geometry_msgs::PointStamped>("/gps_wrtdrone_position" , 10, &data::target_position_relative_cb, this);
+
+    ///< Subscribe to target position relative to drone origin
+    target_position_sub = nh.subscribe<geometry_msgs::PointStamped>("/gps_position" , 10, &data::target_position_cb, this);
+
+    ///< Subscribe to target GPS data
+    target_gps_sub = nh.subscribe<sensor_msgs::NavSatFix>("/android/fix", 10, &data::target_gps_cb, this);
 }
 
 ///< Yaw angle calculator (in degrees) based off target position relative to drone
-// returns 0 - 360 deg
-double data::CalculateYawAngle() {
-    double yaw = atan2(target_position.point.y , target_position.point.x) * 180.0 / pi;
-    if (yaw < 0) return (360.0 + yaw);
-    else return yaw;
+// - code causes a quarternion break!!?
+float data::CalculateYawAngle() {
+    yaw_angle_buffer.push_back(atan2(target_position_relative.point.y , target_position_relative.point.x) * 180.0 / pi);
+
+    return (yaw_angle_buffer[0] + yaw_angle_buffer[1] + yaw_angle_buffer[2]) / 3.0f; ///<try using buffer
 }
 
 ///< Target position subscriber
 void data::target_position_cb(const geometry_msgs::PointStamped::ConstPtr &msg)
 {
     target_position = *msg;
+}
+
+///< Target position relative subscriber
+void data::target_position_relative_cb(const geometry_msgs::PointStamped::ConstPtr &msg)
+{
+    target_position_relative = *msg;
+}
+
+///< Target GPS subscriber callback function
+void data::target_gps_cb(const sensor_msgs::NavSatFix::ConstPtr &msg)
+{
+    target_gps = *msg;
 }
 
 // Altitude subscriber callback function
