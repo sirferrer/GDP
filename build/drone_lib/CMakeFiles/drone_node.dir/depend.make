@@ -6,6 +6,7 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /home/pablo/GDP_Git/src/drone_lib/
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
+CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
@@ -92,6 +93,7 @@ CMakeFiles/drone_node.dir/src/Commands.cpp.o: /opt/ros/melodic/include/xmlrpcpp/
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/Data.cpp
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/data.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
+CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Data.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
@@ -239,6 +241,7 @@ CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /home/pablo/GDP_Git/src/drone_lib/
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/gdpdrone.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
+CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h
@@ -328,6 +331,7 @@ CMakeFiles/drone_node.dir/src/Mission.cpp.o: /home/pablo/GDP_Git/src/drone_lib/s
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/functions.h
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /home/pablo/GDP_Git/src/drone_lib/src/headers/gdpdrone.h
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
+CMakeFiles/drone_node.dir/src/Mission.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /opt/ros/melodic/include/geometry_msgs/Pose.h
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /opt/ros/melodic/include/geometry_msgs/PoseStamped.h
 CMakeFiles/drone_node.dir/src/Mission.cpp.o: /opt/ros/melodic/include/geometry_msgs/Quaternion.h

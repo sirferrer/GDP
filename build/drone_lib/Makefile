@@ -168,6 +168,32 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named joel_node
+
+# Build rule for target.
+joel_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 joel_node
+.PHONY : joel_node
+
+# fast build rule for target.
+joel_node/fast:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/build
+.PHONY : joel_node/fast
+
+#=============================================================================
+# Target rules for targets named robert_node
+
+# Build rule for target.
+robert_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 robert_node
+.PHONY : robert_node
+
+# fast build rule for target.
+robert_node/fast:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/build
+.PHONY : robert_node/fast
+
+#=============================================================================
 # Target rules for targets named drone_node
 
 # Build rule for target.
@@ -498,6 +524,8 @@ src/Commands.o: src/Commands.cpp.o
 
 # target to build an object file
 src/Commands.cpp.o:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Commands.cpp.o
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Commands.cpp.o
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.o
 .PHONY : src/Commands.cpp.o
 
@@ -507,6 +535,8 @@ src/Commands.i: src/Commands.cpp.i
 
 # target to preprocess a source file
 src/Commands.cpp.i:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Commands.cpp.i
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Commands.cpp.i
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.i
 .PHONY : src/Commands.cpp.i
 
@@ -516,6 +546,8 @@ src/Commands.s: src/Commands.cpp.s
 
 # target to generate assembly for a file
 src/Commands.cpp.s:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Commands.cpp.s
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Commands.cpp.s
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Commands.cpp.s
 .PHONY : src/Commands.cpp.s
 
@@ -525,6 +557,8 @@ src/Data.o: src/Data.cpp.o
 
 # target to build an object file
 src/Data.cpp.o:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Data.cpp.o
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Data.cpp.o
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.o
 .PHONY : src/Data.cpp.o
 
@@ -534,6 +568,8 @@ src/Data.i: src/Data.cpp.i
 
 # target to preprocess a source file
 src/Data.cpp.i:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Data.cpp.i
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Data.cpp.i
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.i
 .PHONY : src/Data.cpp.i
 
@@ -543,6 +579,8 @@ src/Data.s: src/Data.cpp.s
 
 # target to generate assembly for a file
 src/Data.cpp.s:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Data.cpp.s
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Data.cpp.s
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Data.cpp.s
 .PHONY : src/Data.cpp.s
 
@@ -552,6 +590,8 @@ src/Functions.o: src/Functions.cpp.o
 
 # target to build an object file
 src/Functions.cpp.o:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Functions.cpp.o
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Functions.cpp.o
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.o
 .PHONY : src/Functions.cpp.o
 
@@ -561,6 +601,8 @@ src/Functions.i: src/Functions.cpp.i
 
 # target to preprocess a source file
 src/Functions.cpp.i:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Functions.cpp.i
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Functions.cpp.i
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.i
 .PHONY : src/Functions.cpp.i
 
@@ -570,6 +612,8 @@ src/Functions.s: src/Functions.cpp.s
 
 # target to generate assembly for a file
 src/Functions.cpp.s:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Functions.cpp.s
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Functions.cpp.s
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Functions.cpp.s
 .PHONY : src/Functions.cpp.s
 
@@ -579,6 +623,8 @@ src/GDPdrone.o: src/GDPdrone.cpp.o
 
 # target to build an object file
 src/GDPdrone.cpp.o:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/GDPdrone.cpp.o
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/GDPdrone.cpp.o
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.o
 .PHONY : src/GDPdrone.cpp.o
 
@@ -588,6 +634,8 @@ src/GDPdrone.i: src/GDPdrone.cpp.i
 
 # target to preprocess a source file
 src/GDPdrone.cpp.i:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/GDPdrone.cpp.i
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/GDPdrone.cpp.i
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.i
 .PHONY : src/GDPdrone.cpp.i
 
@@ -597,6 +645,8 @@ src/GDPdrone.s: src/GDPdrone.cpp.s
 
 # target to generate assembly for a file
 src/GDPdrone.cpp.s:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/GDPdrone.cpp.s
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/GDPdrone.cpp.s
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/GDPdrone.cpp.s
 .PHONY : src/GDPdrone.cpp.s
 
@@ -627,6 +677,60 @@ src/Mission.cpp.s:
 	$(MAKE) -f CMakeFiles/drone_node.dir/build.make CMakeFiles/drone_node.dir/src/Mission.cpp.s
 .PHONY : src/Mission.cpp.s
 
+src/Mission_Joel.o: src/Mission_Joel.cpp.o
+
+.PHONY : src/Mission_Joel.o
+
+# target to build an object file
+src/Mission_Joel.cpp.o:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Mission_Joel.cpp.o
+.PHONY : src/Mission_Joel.cpp.o
+
+src/Mission_Joel.i: src/Mission_Joel.cpp.i
+
+.PHONY : src/Mission_Joel.i
+
+# target to preprocess a source file
+src/Mission_Joel.cpp.i:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Mission_Joel.cpp.i
+.PHONY : src/Mission_Joel.cpp.i
+
+src/Mission_Joel.s: src/Mission_Joel.cpp.s
+
+.PHONY : src/Mission_Joel.s
+
+# target to generate assembly for a file
+src/Mission_Joel.cpp.s:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/src/Mission_Joel.cpp.s
+.PHONY : src/Mission_Joel.cpp.s
+
+src/Mission_Robert.o: src/Mission_Robert.cpp.o
+
+.PHONY : src/Mission_Robert.o
+
+# target to build an object file
+src/Mission_Robert.cpp.o:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Mission_Robert.cpp.o
+.PHONY : src/Mission_Robert.cpp.o
+
+src/Mission_Robert.i: src/Mission_Robert.cpp.i
+
+.PHONY : src/Mission_Robert.i
+
+# target to preprocess a source file
+src/Mission_Robert.cpp.i:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Mission_Robert.cpp.i
+.PHONY : src/Mission_Robert.cpp.i
+
+src/Mission_Robert.s: src/Mission_Robert.cpp.s
+
+.PHONY : src/Mission_Robert.s
+
+# target to generate assembly for a file
+src/Mission_Robert.cpp.s:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/src/Mission_Robert.cpp.s
+.PHONY : src/Mission_Robert.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -636,6 +740,8 @@ help:
 	@echo "... install/strip"
 	@echo "... rebuild_cache"
 	@echo "... test"
+	@echo "... joel_node"
+	@echo "... robert_node"
 	@echo "... drone_node"
 	@echo "... std_msgs_generate_messages_nodejs"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -680,6 +786,12 @@ help:
 	@echo "... src/Mission.o"
 	@echo "... src/Mission.i"
 	@echo "... src/Mission.s"
+	@echo "... src/Mission_Joel.o"
+	@echo "... src/Mission_Joel.i"
+	@echo "... src/Mission_Joel.s"
+	@echo "... src/Mission_Robert.o"
+	@echo "... src/Mission_Robert.i"
+	@echo "... src/Mission_Robert.s"
 .PHONY : help
 
 

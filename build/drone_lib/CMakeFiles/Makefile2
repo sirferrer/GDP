@@ -60,6 +60,80 @@ CMAKE_SOURCE_DIR = /home/pablo/GDP_Git/src/drone_lib
 CMAKE_BINARY_DIR = /home/pablo/GDP_Git/build/drone_lib
 
 #=============================================================================
+# Target rules for target CMakeFiles/joel_node.dir
+
+# All Build rule for target.
+CMakeFiles/joel_node.dir/all:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/depend
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pablo/GDP_Git/build/drone_lib/CMakeFiles --progress-num=18,19,20,21,22,23 "Built target joel_node"
+.PHONY : CMakeFiles/joel_node.dir/all
+
+# Include target in all.
+all: CMakeFiles/joel_node.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/joel_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/GDP_Git/build/drone_lib/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/joel_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/GDP_Git/build/drone_lib/CMakeFiles 0
+.PHONY : CMakeFiles/joel_node.dir/rule
+
+# Convenience name for target.
+joel_node: CMakeFiles/joel_node.dir/rule
+
+.PHONY : joel_node
+
+# clean rule for target.
+CMakeFiles/joel_node.dir/clean:
+	$(MAKE) -f CMakeFiles/joel_node.dir/build.make CMakeFiles/joel_node.dir/clean
+.PHONY : CMakeFiles/joel_node.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/joel_node.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/robert_node.dir
+
+# All Build rule for target.
+CMakeFiles/robert_node.dir/all:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/depend
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pablo/GDP_Git/build/drone_lib/CMakeFiles --progress-num=24,25,26,27,28,29 "Built target robert_node"
+.PHONY : CMakeFiles/robert_node.dir/all
+
+# Include target in all.
+all: CMakeFiles/robert_node.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/robert_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/GDP_Git/build/drone_lib/CMakeFiles 6
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/robert_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/GDP_Git/build/drone_lib/CMakeFiles 0
+.PHONY : CMakeFiles/robert_node.dir/rule
+
+# Convenience name for target.
+robert_node: CMakeFiles/robert_node.dir/rule
+
+.PHONY : robert_node
+
+# clean rule for target.
+CMakeFiles/robert_node.dir/clean:
+	$(MAKE) -f CMakeFiles/robert_node.dir/build.make CMakeFiles/robert_node.dir/clean
+.PHONY : CMakeFiles/robert_node.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/robert_node.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/drone_node.dir
 
 # All Build rule for target.

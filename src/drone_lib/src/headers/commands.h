@@ -86,8 +86,7 @@ private:
     void state_cb(const mavros_msgs::State::ConstPtr &msg);
     void pose_cb(const geometry_msgs::PoseStamped::ConstPtr &msg);
     void heading_cb(const std_msgs::Float64::ConstPtr& msg); 
-    void set_frame(mavros_msgs::PositionTarget *_pos, std::string _frame);
-    void move_Acceleration_Local(float _x, float _y, float _z); // HIDE FOR NOW
+    void set_frame(mavros_msgs::PositionTarget *_pos, std::string _frame, bool velocity_acc);
     std::vector<float> transform_frame(std::vector<float> _vector, std::string _frame);
     bool check_Inputs(float _x, float _y, float _z, float yaw);
 };

@@ -1,6 +1,8 @@
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/install/strip.dir
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/rebuild_cache.dir
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/test.dir
+/home/pablo/GDP_Git/build/drone_lib/CMakeFiles/joel_node.dir
+/home/pablo/GDP_Git/build/drone_lib/CMakeFiles/robert_node.dir
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/drone_node.dir
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 /home/pablo/GDP_Git/build/drone_lib/CMakeFiles/std_msgs_generate_messages_lisp.dir

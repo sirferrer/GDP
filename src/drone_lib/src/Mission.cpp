@@ -19,15 +19,47 @@ int main(int argc, char **argv)
 
     // MISSION STARTS HERE:
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
-    float altitude = 0.50;
-    int time_takeoff = 250;
+    float altitude = 2;
+    int time_takeoff = 125;
     drone.Commands.request_Takeoff(altitude, time_takeoff);
 
     // Go one meter up and stay there. Total time 10 seconds
-    ROS_INFO("First Command");
-    for (int count = 1; count < 250; count++)
+    ROS_INFO("Second Command");
+    for (int count = 1; count < 125; count++)
     {
-        drone.Commands.move_Position_Local(0.25, 5, altitude, 80, "BODY_OFFSET");
+        drone.Commands.move_Position_Local(2, 0, 0, 0, "BODY_OFFSET");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    ROS_INFO("Third Command");
+    for (int count = 1; count < 125; count++)
+    {
+        drone.Commands.move_Position_Local(0, 2, 0, 0, "BODY_OFFSET");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+        for (int count = 1; count < 125; count++)
+    {
+        drone.Commands.move_Position_Local(-2, 0, 0, 0, "BODY_OFFSET");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+    ROS_INFO("Third Command");
+    for (int count = 1; count < 125; count++)
+    {
+        drone.Commands.move_Position_Local(0, -2, 0, 0, "BODY_OFFSET");
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+
+    ROS_INFO("Fourth Command");
+    for (int count = 1; count < 125; count++)
+    {
+        drone.Commands.move_Velocity_Local(0, 2, altitude, 0, "BODY_OFFSET");
         ros::spinOnce();
         rate.sleep();
     }

@@ -106,7 +106,7 @@ void commands::move_Position_Local(float _x, float _y, float _z, float _yaw_angl
     mavros_msgs::PositionTarget pos;
 
     // Set reference Frame
-    commands::set_frame(&pos, _frame);
+    commands::set_frame(&pos, _frame, false);
 
     // If this is the first time this command is sent, rotate the frame
     if (check_Inputs(_x, _y, _z, _yaw_angle_deg))
@@ -129,10 +129,7 @@ void commands::move_Position_Local(float _x, float _y, float _z, float _yaw_angl
 void commands::move_Velocity_Local(float _x, float _y, float _z, float _yaw_rate_deg_s, std::string _frame)
 {
     mavros_msgs::PositionTarget pos;
-    commands::set_frame(&pos, _frame);
-
-    std::vector<float> input_vector = {_x, _y, _z};
-    std::vector<float> corrected_vector = commands::transform_frame(input_vector, _frame);
+    commands::set_frame(&pos, _frame, true);
 
     pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
                     mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
@@ -154,10 +151,7 @@ void commands::move_Acceleration_Local(float _x, float _y, float _z, std::string
     }
 
     mavros_msgs::PositionTarget pos;
-    commands::set_frame(&pos, _frame);
-
-    std::vector<float> input_vector = {_x, _y, _z};
-    std::vector<float> corrected_vector = commands::transform_frame(input_vector, _frame);
+    commands::set_frame(&pos, _frame, true);
 
     pos.coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
     pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
@@ -173,10 +167,7 @@ void commands::move_Acceleration_Local(float _x, float _y, float _z, std::string
 void commands::move_Acceleration_Local_Trick(float _x, float _y, float _z, std::string _frame, int rate)
 {
     mavros_msgs::PositionTarget pos;
-    commands::set_frame(&pos, _frame);
-
-    std::vector<float> input_vector = {_x, _y, _z};
-    std::vector<float> corrected_vector = commands::transform_frame(input_vector, _frame);
+    commands::set_frame(&pos, _frame, true);
 
     pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
                     mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
@@ -196,12 +187,6 @@ void commands::move_Acceleration_Local_Trick(float _x, float _y, float _z, std::
 
     // Publish command
     target_pub_local.publish(pos);
-}
-
-void commands::move_Acceleration_Local(float _x, float _y, float _z)
-{
-    geometry_msgs::Vector3Stamped acceleration = functions::make_acceleration(_x, _y, _z);
-    acceleration_pub.publish(acceleration);
 }
 
 void commands::move_Position_Global(float _latitude, float _longitude, float _altitude, float _yaw_angle_deg, std::string _frame)
@@ -278,7 +263,7 @@ void commands::set_Arm_Disarm(bool _arm)
     }
 }
 
-void commands::set_frame(mavros_msgs::PositionTarget *_pos, std::string _frame)
+void commands::set_frame(mavros_msgs::PositionTarget *_pos, std::string _frame, bool is_velocity_or_acc)
 {
     std::vector<float> corrected_vector(3);
 
@@ -290,16 +275,28 @@ void commands::set_frame(mavros_msgs::PositionTarget *_pos, std::string _frame)
     else if (_frame == "LOCAL")
     {
         _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_NED;
-
-        // This is the default frame, so no transformation is needed
     }
     else if (_frame == "BODY_OFFSET")
     {
-        _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_OFFSET_NED;
+        if (is_velocity_or_acc)
+        {
+            _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_NED;
+        }
+        else
+        {
+            _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_BODY_OFFSET_NED;
+        }
     }
     else if (_frame == "LOCAL_OFFSET")
     {
-        _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_OFFSET_NED;
+        if (is_velocity_or_acc)
+        {
+            _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_NED;
+        }
+        else
+        {
+            _pos->coordinate_frame = mavros_msgs::PositionTarget::FRAME_LOCAL_OFFSET_NED;
+        }
     }
     else
     {
@@ -316,20 +313,21 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
     if (_frame == "BODY")
     {
         // Rotate by heading angle, Z Axis does not need rotation on NED
-        corrected_vector[0] = _vector[0] * cos(compass_heading.data) - _vector[1] * sin(compass_heading.data);
-        corrected_vector[1] = _vector[0] * sin(compass_heading.data) + _vector[1] * cos(compass_heading.data);
+        corrected_vector[0] = _vector[0] * cos(compass_heading.data) + _vector[1] * sin(compass_heading.data);
+        corrected_vector[1] = _vector[0] * sin(compass_heading.data) - _vector[1] * cos(compass_heading.data);
         corrected_vector[2] = _vector[2];
         corrected_vector[3] = _vector[3] + 90 - compass_heading.data;
     }
     else if (_frame == "LOCAL")
     {
         // This is the default frame, so no transformation is needed
+        return _vector;
     }
     else if (_frame == "BODY_OFFSET")
     {
         // Rotate by heading angle, Z Axis does not need rotation on NED
-        corrected_vector[0] = _vector[0] * cos(compass_heading.data) - _vector[1] * sin(compass_heading.data);
-        corrected_vector[1] = _vector[0] * sin(compass_heading.data) + _vector[1] * cos(compass_heading.data);
+        corrected_vector[0] = _vector[0] * cos(compass_heading.data) + _vector[1] * sin(compass_heading.data);
+        corrected_vector[1] = _vector[0] * sin(compass_heading.data) - _vector[1] * cos(compass_heading.data);
         corrected_vector[2] = _vector[2];
         corrected_vector[3] = _vector[3] + 90 - compass_heading.data;
 
@@ -337,6 +335,9 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
         corrected_vector[0] += local_pose.pose.position.x;
         corrected_vector[1] += local_pose.pose.position.y;
         corrected_vector[2] += local_pose.pose.position.z;
+
+        // Make ENU
+        // std::swap(corrected_vector[0], corrected_vector[1]); 
     }
     else if (_frame == "LOCAL_OFFSET")
     {
@@ -344,6 +345,7 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
         corrected_vector[0] += local_pose.pose.position.x;
         corrected_vector[1] += local_pose.pose.position.y;
         corrected_vector[2] += local_pose.pose.position.z;
+        corrected_vector[3] = _vector[3];
     }
     else
     {
@@ -353,7 +355,7 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
     return corrected_vector;
 }
 
-// Check if inputs are the same as previos loop
+// Check if inputs are the same as previous loop
 bool commands::check_Inputs(float _x, float _y, float _z, float _yaw)
 {
     if ((_x == com_x) && (_y == com_y) && (_z == com_z) && (_yaw == com_yaw))
@@ -395,18 +397,11 @@ void commands::pose_cb(const geometry_msgs::PoseStamped::ConstPtr &msg)
     local_pose = *msg;
 }
 
-
-
-
-
-
-
-
 ///< Overloaded for Silwood test 1 mission
 void commands::move_Velocity_Local_geraldtest(float _fixed_speed, float _yaw_angle_deg, std::string _frame)
 {
     mavros_msgs::PositionTarget pos;
-    commands::set_frame(&pos, _frame);
+    commands::set_frame(&pos, _frame, true);
 
     pos.type_mask = mavros_msgs::PositionTarget::IGNORE_PX | mavros_msgs::PositionTarget::IGNORE_PY |
                     mavros_msgs::PositionTarget::IGNORE_PZ | mavros_msgs::PositionTarget::IGNORE_AFX |
