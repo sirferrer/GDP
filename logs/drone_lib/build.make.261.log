@@ -1,0 +1,12 @@
+[35m[1mScanning dependencies of target joel_node[0m
+[35m[1mScanning dependencies of target robert_node[0m
+[35m[1mScanning dependencies of target drone_node[0m
+[  5%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/Commands.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/joel_node.dir/src/Commands.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/robert_node.dir/src/Commands.cpp.o[0m
+[ 22%] [32m[1mLinking CXX executable /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/joel_node[0m
+[ 27%] [32m[1mLinking CXX executable /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/robert_node[0m
+[ 33%] [32m[1mLinking CXX executable /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node[0m
+[ 55%] Built target joel_node
+[ 77%] Built target robert_node
+[100%] Built target drone_node

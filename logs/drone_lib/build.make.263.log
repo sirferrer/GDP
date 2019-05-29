@@ -1,0 +1,33 @@
+[35m[1mScanning dependencies of target robert_node[0m
+[35m[1mScanning dependencies of target joel_node[0m
+[35m[1mScanning dependencies of target drone_node[0m
+[  5%] [32mBuilding CXX object CMakeFiles/robert_node.dir/src/Commands.cpp.o[0m
+[ 11%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/Commands.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/joel_node.dir/src/Commands.cpp.o[0m
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kstd::vector<float> commands::transform_frame(std::vector<float>, std::__cxx11::string)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:329:122:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+         corrected_vector[0] = -_vector[0] * sin(-compass_heading.data + 90) + _vector[1] * cos(-compass_heading.data + 90[01;31m[K;[m[K
+                                                                                                                          [01;31m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kstd::vector<float> commands::transform_frame(std::vector<float>, std::__cxx11::string)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:329:122:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+         corrected_vector[0] = -_vector[0] * sin(-compass_heading.data + 90) + _vector[1] * cos(-compass_heading.data + 90[01;31m[K;[m[K
+                                                                                                                          [01;31m[K^[m[K
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:[m[K In member function ‘[01m[Kstd::vector<float> commands::transform_frame(std::vector<float>, std::__cxx11::string)[m[K’:
+[01m[K/home/pablo/GDP_Git/src/drone_lib/src/Commands.cpp:329:122:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K)[m[K’ before ‘[01m[K;[m[K’ token
+         corrected_vector[0] = -_vector[0] * sin(-compass_heading.data + 90) + _vector[1] * cos(-compass_heading.data + 90[01;31m[K;[m[K
+                                                                                                                          [01;31m[K^[m[K
+CMakeFiles/robert_node.dir/build.make:110: recipe for target 'CMakeFiles/robert_node.dir/src/Commands.cpp.o' failed
+make[2]: *** [CMakeFiles/robert_node.dir/src/Commands.cpp.o] Error 1
+CMakeFiles/Makefile2:104: recipe for target 'CMakeFiles/robert_node.dir/all' failed
+make[1]: *** [CMakeFiles/robert_node.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+CMakeFiles/drone_node.dir/build.make:110: recipe for target 'CMakeFiles/drone_node.dir/src/Commands.cpp.o' failed
+make[2]: *** [CMakeFiles/drone_node.dir/src/Commands.cpp.o] Error 1
+make[1]: *** [CMakeFiles/drone_node.dir/all] Error 2
+CMakeFiles/Makefile2:141: recipe for target 'CMakeFiles/drone_node.dir/all' failed
+CMakeFiles/joel_node.dir/build.make:110: recipe for target 'CMakeFiles/joel_node.dir/src/Commands.cpp.o' failed
+make[2]: *** [CMakeFiles/joel_node.dir/src/Commands.cpp.o] Error 1
+CMakeFiles/Makefile2:67: recipe for target 'CMakeFiles/joel_node.dir/all' failed
+make[1]: *** [CMakeFiles/joel_node.dir/all] Error 2
+Makefile:140: recipe for target 'all' failed
+make: *** [all] Error 2

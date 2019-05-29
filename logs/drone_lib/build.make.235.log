@@ -1,6 +1,0 @@
-[35m[1mScanning dependencies of target drone_node[0m
-[ 33%] Built target robert_node
-[ 66%] Built target joel_node
-[ 72%] [32mBuilding CXX object CMakeFiles/drone_node.dir/src/Mission.cpp.o[0m
-[ 77%] [32m[1mLinking CXX executable /home/pablo/GDP_Git/devel/.private/drone_lib/lib/drone_lib/drone_node[0m
-[100%] Built target drone_node

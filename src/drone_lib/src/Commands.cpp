@@ -313,8 +313,8 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
     if (_frame == "BODY")
     {
         // Rotate by heading angle, Z Axis does not need rotation on NED
-        corrected_vector[0] = _vector[0] * cos(compass_heading.data) + _vector[1] * sin(compass_heading.data);
-        corrected_vector[1] = _vector[0] * sin(compass_heading.data) - _vector[1] * cos(compass_heading.data);
+        corrected_vector[0] = -_vector[0] * sin(-compass_heading.data + 90) + _vector[1] * cos(-compass_heading.data + 90);
+        corrected_vector[1] = (_vector[0] * cos(-compass_heading.data + 90) + _vector[1] * sin(-compass_heading.data + 90))*-1;
         corrected_vector[2] = _vector[2];
         corrected_vector[3] = _vector[3] + 90 - compass_heading.data;
     }
@@ -326,8 +326,8 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
     else if (_frame == "BODY_OFFSET")
     {
         // Rotate by heading angle, Z Axis does not need rotation on NED
-        corrected_vector[0] = _vector[0] * cos(compass_heading.data) + _vector[1] * sin(compass_heading.data);
-        corrected_vector[1] = _vector[0] * sin(compass_heading.data) - _vector[1] * cos(compass_heading.data);
+        corrected_vector[0] = -_vector[0] * sin(-compass_heading.data + 90) + _vector[1] * cos(-compass_heading.data + 90);
+        corrected_vector[1] = (_vector[0] * cos(-compass_heading.data + 90) + _vector[1] * sin(-compass_heading.data + 90))*-1;
         corrected_vector[2] = _vector[2];
         corrected_vector[3] = _vector[3] + 90 - compass_heading.data;
 
@@ -335,9 +335,6 @@ std::vector<float> commands::transform_frame(std::vector<float> _vector, std::st
         corrected_vector[0] += local_pose.pose.position.x;
         corrected_vector[1] += local_pose.pose.position.y;
         corrected_vector[2] += local_pose.pose.position.z;
-
-        // Make ENU
-        // std::swap(corrected_vector[0], corrected_vector[1]); 
     }
     else if (_frame == "LOCAL_OFFSET")
     {
