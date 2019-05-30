@@ -10,7 +10,7 @@ int main(int argc, char **argv)
     GDPdrone drone;
 
     // Set the rate. Default working frequency is 25 Hz
-    float loop_rate = 10.0;
+    float loop_rate = 10.0f;
     ros::Rate rate = ros::Rate(loop_rate);
 
     // Initialise and Arm
@@ -20,7 +20,7 @@ int main(int argc, char **argv)
 
     // MISSION STARTS HERE:
     // Request takeoff at 1m altitude. At 25Hz = 10 seconds
-    float altitude = 5;
+    float altitude = 5.0f;
     int time_takeoff = 125;
     drone.Commands.request_Takeoff(altitude, time_takeoff);
 
@@ -30,10 +30,12 @@ int main(int argc, char **argv)
     // ROS_INFO("Track Ambulance");
     // for (int count = 1; count < 20000; count++)
     // {   
-    //     // // Use the command below to move to setpoint at max speed:
-    //     drone.Commands.move_Position_Global(drone.Data.target_gps.latitude, drone.Data.target_gps.longitude, drone.Data.target_gps.altitude + 5.0f, 0.0f, "LOCAL");
-    //     ROS_INFO("Angle: %f", drone.Data.CalculateYawAngle());
-    //     // // drone.Commands.move_Velocity_Local(1.50, yaw_angle, "BODY");
+    // //     // // Use the command below to move to setpoint at max speed:
+    //     // drone.Commands.move_Position_Global(drone.Data.target_gps.latitude, drone.Data.target_gps.longitude, drone.Data.target_gps.altitude + 5.0f, drone.Data.CalculateYawAngle(), "LOCAL");
+    // //     ROS_INFO("Angle: %f", drone.Data.CalculateYawAngle());
+
+
+    //     drone.Commands.move_Velocity_Local(2.0, drone.Data.CalculateYawAngle(), "LOCAL_OFFSET");
     //     ros::spinOnce();
     //     rate.sleep();
     // }
@@ -44,12 +46,21 @@ int main(int argc, char **argv)
 
 
 
-ROS_INFO("Test acceleration");
-for (int count = 1; count < 2000; count++){
-drone.Commands.move_Acceleration_Local_Trick(1.0f, 0.0f, 0.0f, "LOCAL_OFFSET", loop_rate);
-ros::spinOnce();
-rate.sleep();
-}
+    ROS_INFO("Test velocity handover to accel - velocity for 10s");
+    drone.Commands.Initialise_Velocity_for_AccelCommands(2.0f, 0.0f, 0.0f);
+    for (int count = 1; count < 200; count++){
+        drone.Commands.move_Velocity_Local(2.0f, 0.0f, 0.0f, 0.0f, "LOCAL_OFFSET");
+        ros::spinOnce();
+        rate.sleep();
+    }
+    ROS_INFO("Switch to accel");
+    for (int count = 1; count < 200; count++){
+        drone.Commands.move_Acceleration_Local_Trick(0.2f, 0.0f, 0.0f, "LOCAL_OFFSET", loop_rate);
+        ros::spinOnce();
+        rate.sleep();
+    }
+
+
 
     // Land and disarm
     drone.Commands.request_LandingAuto();
